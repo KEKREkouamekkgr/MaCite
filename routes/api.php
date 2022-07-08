@@ -12,7 +12,7 @@ use App\Http\Controllers\apiController\apiAdminController\Mapping\MappingControl
 use App\Http\Controllers\apiController\apiAdminController\apiGestionDecision\InformationController;
 use App\Http\Controllers\apiController\apiAdminController\apiGestionDecision\TypeInformationController;
 use App\Http\Controllers\apiController\apiAdminController\Gestion_ServiceAdministratif\ExtraitController;
-
+use App\Http\Controllers\ThemeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,13 +106,11 @@ Route::middleware('auth:sanctum')->get('', function (Request $request) {
     //Celestin
     //API Sondage
     Route::get('/sondageIndex',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'index']);
-
     Route::get('/sondageIdSondage/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'idSonge']);
     Route::post('/sondageStore',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'store']);
     Route::get('/sondageShow/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'show']);
     Route::put('/sondageUpdate/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'Update']);
     Route::delete('/sondageDelete/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\SondageController::class,'destroy']);
-
 
     // //API Options
     Route::get('/optionIndex',[App\Http\Controllers\apiController\apiAdminController\Gestion_Sondage\OptionController::class,'index']);
@@ -132,8 +130,9 @@ Route::middleware('auth:sanctum')->get('', function (Request $request) {
     Route::delete('/commenterDelete/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\CommenterController::class,'destroy']);
 
     //Liker
-    Route::post('/likerStore/{user}/{proposidee}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\LikerController::class,'store']);
-    Route::put('/likerUpdate/{id}/{user}/{proposidee}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\LikerController::class,'Update']);
+    Route::post('/likerStore',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\LikerController::class,'store']);
+    Route::put('/likerUpdate/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\LikerController::class,'Update']);
+    Route::put('/likerDisliker/{id}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\LikerController::class,'dislike']);
 
     //Signaler
     Route::post('/SignalerStore/{user}/{proposidee}',[App\Http\Controllers\apiController\apiAdminController\Gestion_Mld\SignalerController::class,'store']);
@@ -220,9 +219,11 @@ Route::middleware('auth:sanctum')->get('', function (Request $request) {
     // Route::delete('/parkingDelete/{id}',[App\Http\Controllers\apiController\apiAdminController\Parking\ParkingController::class,'destroy']);
 
     //API DASHBOARD
+    /* Celestin */
     Route::get('/totalProbleme/{IdCommune}',[App\Http\Controllers\apiController\CountApiController::class,'totalProbleme']);
     Route::get('/totalSondage/{IdCommune}',[App\Http\Controllers\apiController\CountApiController::class,'totalSondage']);
     Route::get('/totalCollecte/{IdCommune}',[App\Http\Controllers\apiController\CountApiController::class,'totalCollecte']);
+
     Route::get('/totalProjet/{IdCommune}',[App\Http\Controllers\apiController\CountApiController::class,'totalProjet']);
     Route::get('/values/{IdCommune}',[App\Http\Controllers\apiController\CountApiController::class,'piechart']);
 
@@ -245,6 +246,13 @@ Route::middleware('auth:sanctum')->get('', function (Request $request) {
 
      /********* ENVOIE SMS ****************/
     Route::post('messageApiOrange',[MessageController::class,'send']);
+
+//API du Theme
+Route::get('/liste-theme',[ThemeController::class,'index']);
+Route::post('/store-theme',[ThemeController::class,'store']);
+Route::get('/details-theme/{id}',[ThemeController::class,'show']);
+Route::put('/modification-theme/{id}',[ThemeController::class,'update']);
+Route::delete('/delete-theme',[ThemeController::class,'destroy']);
 
 
 

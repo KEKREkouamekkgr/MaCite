@@ -19,7 +19,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        $vote = Vote::All()->orderByDesc('created_at')->get();
+        $vote = Vote::orderByDesc('created_at')->with(['user:id,name','option:id'])->get();
         return response()->json($vote,200);
     }
 
@@ -69,15 +69,30 @@ class VoteController extends Controller
     {
         //
 
-        // $request->validate([
-        //     "IdUser"=>['required', Rule::exists('users', 'id')],
-        //     "IdOption"=>['required', Rule::exists('options', 'id')],
-        // ]);
 
-        $vote = Vote::create([
-            "IdUser"=>$request->IdUser,
-            "IdOption"=>$request->IdOption,
-        ]);
+        $input = $request->all();
+
+                $validator = Validator::make($input,[
+                    'IdUser'=>['required|integer',Rule::exists('users', 'id')],
+                    'IdOption'=>['required|integer',Rule::exists('options', 'id')],
+                ]);
+
+                if($validator->fails()){
+                    return response()->json([
+                        'message'=>$validator->errors(),
+                        'status' => false,
+                    ]);
+                }
+
+                $vote = New Vote();
+                $vote->IdUser = $request->input('IdUser');
+                $vote->IdOption = $request->input('IdOption');
+                $vote->save();
+
+        // $vote = Vote::create([
+        //     "IdUser"=>$request->IdUser,
+        //     "IdOption"=>$request->IdOption,
+        // ]);
 
         //dd($vote);
 
@@ -99,9 +114,6 @@ class VoteController extends Controller
     {
 
         $vote = Vote ::findOrFail($id);
-
-
-
         if(is_null($vote))
         {
             return response()->json(["status"=>"false","message"=>"Idée non trouvée!"],400);
@@ -120,6 +132,32 @@ class VoteController extends Controller
         return response()->json($vote,200);
 
     }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Vote  $vote
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Vote $vote)
+    {
+        //mise à jour du champs vote
+
+        $request->validate([
+            "IdUser"=>['required', Rule::exists('users', 'id')],
+            "IdOption"=>['required', Rule::exists('options', 'id')],
+        ]);
+
+            $vote->IdOption= $request->IdOption;
+            // $vote->user_id =  auth()->user()->id;
+            $vote->IdUser =  $request->IdUser;
+            $vote->save();
+           //dd($vote);
+
+           return response()->json($vote,"200");
+    }
+
 
 
 

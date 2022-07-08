@@ -18,12 +18,15 @@ protected $primaryKey = 'id';
 
 protected $fillable = [
     'nomProprietaire',
+    'prenomProprietaire',
     'numTel',
+    'image',
     'nomEntreprise',
     'descripActivite',
     'jsonDonnee',
     'latitude',
     'longitude',
+    'IdResidant',
     'IdCategorie',
     'IdCommune',
     'IdUser'
