@@ -230,6 +230,7 @@ Route::middleware('auth:sanctum')->get('', function (Request $request) {
 
     //Api de Mapping
     Route::get('/mappingIndex',[MappingController::class,'index']);
+
     Route::post('/mappingStore',[MappingController::class,'store']);
     Route::get('/mappingShow/{id}',[MappingController::class,'show']);
     Route::put('/mappingUpdate/{id}',[MappingController::class,'update']);
@@ -254,6 +255,9 @@ Route::get('/details-theme/{id}',[ThemeController::class,'show']);
 Route::put('/modification-theme/{id}',[ThemeController::class,'update']);
 Route::delete('/delete-theme',[ThemeController::class,'destroy']);
 
+Route::post('/reserver/{id}',[App\Http\Controllers\apiController\apiAdminController\ReservationController::class,'reserver']);
+Route::get('/mappingRecherche/{commune}/{categorie}',[MappingController::class,'parkingRecherche']);
+Route::get('/categorieRecherche/{categorie}',[MappingController::class,'categorieRecherche']);
 
 
 

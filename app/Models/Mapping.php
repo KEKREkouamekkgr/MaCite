@@ -46,4 +46,20 @@ protected $fillable = [
         {
             return $this->belongsTo(User::class, 'IdUser','id');
         }
+
+        public function filter($builder, $value)
+        {
+            return $builder->where('type', $value);
+        }
+
+        protected $casts = [
+            'jsonDonnee'=>'array',
+         ];
+
+         public function rules(){
+
+             return [
+                 'jsonDonnee'=>'required|array'
+             ];
+         }
 }

@@ -10,26 +10,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Reservation extends Model
 {
     use HasFactory, SoftDeletes;
-
 	protected $table = 'reservations';
-	protected $casts = [
-		'IdUser' => 'int',
-        'IdPaiement'=>'int'
-	];
-
 	protected $fillable = [
-		'IdUser' => 'int',
-        'IdPaiement'=>'int',
-        'numPlace'=>'int'
+		'IdUser',
+        'dateReservation',
+        'heureStationnement',
+        'heureSortie',
+        'prix',
+        'IdUserIndex',
+        'IdPlaceParkingIndex',
+        'created_at',
+        'updated_at'
 	];
 
-	public function paiement()
-	{
-		return $this->belongsTo(Paiement::class,'IdPaiement','id');
-	}
-
-	public function user()
-	{
-		return $this->belongsTo(User::class, 'IdUser','id');
-	}
 }

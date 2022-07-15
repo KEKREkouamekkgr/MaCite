@@ -32,7 +32,7 @@ class InformationController extends Controller
     $users =  Information::orderByDesc('created_at')->with(['user:id,name','commune:id,nom','type_information:id,titre'])->get();
 
             return response()->json($users,200);
-}
+    }
      /**
      * Display the specified resource.
      *
@@ -107,7 +107,7 @@ class InformationController extends Controller
         $userTypeId = User::where("id",$user)->value('IdTypeUtilisateur');
         $userType = TypeUtilisateur::where("id", $userTypeId)->value('profil');
 
-       if($userType=="admin" || $userType=="membre_admin"){
+       if($userType=="admin" || $userType=="admin"){
 
             $info = New Information();
             $info->titre = $request->input('titre');

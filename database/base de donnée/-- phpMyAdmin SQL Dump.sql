@@ -2,22 +2,22 @@
 -- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Jul 02, 2022 at 10:52 AM
--- Server version: 5.7.26
--- PHP Version: 7.4.2
+-- Hôte : localhost:8889
+-- Généré le :  ven. 08 juil. 2022 à 13:02
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `lacommunale`
+-- Base de données :  `lacommunale`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cartes`
+-- Structure de la table `cartes`
 --
 
 CREATE TABLE `cartes` (
@@ -31,7 +31,7 @@ CREATE TABLE `cartes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Structure de la table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -44,16 +44,22 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `categories`
+-- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `titre`, `description`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'black', 'madara', '2022-06-30 18:11:16', '2022-06-30 18:11:16', NULL);
+(1, 'Black', 'Madara', '2022-06-30 18:11:16', '2022-07-04 16:49:02', '2022-07-04 16:49:02'),
+(2, 'Sport', 'Ras', '2022-07-04 16:35:55', '2022-07-04 16:48:52', '2022-07-04 16:48:52'),
+(3, 'SPORT', 'DESCRIPTION SPORT', '2022-07-04 16:35:55', '2022-07-05 19:28:47', NULL),
+(4, 'COMMERCE', 'DESCRIPTION COMMERCE', '2022-07-04 17:21:15', '2022-07-05 19:28:33', NULL),
+(5, 'TRANSPORT', 'DESCRIPTION TRANSPORT', '2022-07-04 17:21:34', '2022-07-05 19:28:19', NULL),
+(6, 'Allocodrome', 'DIEU1', '2022-07-04 17:22:41', '2022-07-05 19:14:11', '2022-07-05 19:14:11'),
+(7, 'PARKING', 'DESCRIPTION PARKING', '2022-07-05 19:14:41', '2022-07-05 19:28:06', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `collectes`
+-- Structure de la table `collectes`
 --
 
 CREATE TABLE `collectes` (
@@ -68,7 +74,7 @@ CREATE TABLE `collectes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `collectes`
+-- Déchargement des données de la table `collectes`
 --
 
 INSERT INTO `collectes` (`id`, `montant`, `reseau`, `IdProjet`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -78,7 +84,7 @@ INSERT INTO `collectes` (`id`, `montant`, `reseau`, `IdProjet`, `status`, `creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commenter`
+-- Structure de la table `commenter`
 --
 
 CREATE TABLE `commenter` (
@@ -92,7 +98,7 @@ CREATE TABLE `commenter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `commenter`
+-- Déchargement des données de la table `commenter`
 --
 
 INSERT INTO `commenter` (`id`, `description`, `IdUser`, `IdProposIdee`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -120,7 +126,7 @@ INSERT INTO `commenter` (`id`, `description`, `IdUser`, `IdProposIdee`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `communes`
+-- Structure de la table `communes`
 --
 
 CREATE TABLE `communes` (
@@ -132,7 +138,7 @@ CREATE TABLE `communes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `communes`
+-- Déchargement des données de la table `communes`
 --
 
 INSERT INTO `communes` (`id`, `nom`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -143,7 +149,7 @@ INSERT INTO `communes` (`id`, `nom`, `created_at`, `updated_at`, `deleted_at`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Structure de la table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -159,13 +165,13 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `informations`
+-- Structure de la table `informations`
 --
 
 CREATE TABLE `informations` (
   `id` int(11) NOT NULL,
   `titre` varchar(191) NOT NULL,
-  `description` varchar(191) NOT NULL,
+  `description` text NOT NULL,
   `image` varchar(191) NOT NULL,
   `IdTypeInformation` int(11) NOT NULL,
   `IdUser` int(11) NOT NULL,
@@ -176,51 +182,17 @@ CREATE TABLE `informations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `informations`
+-- Déchargement des données de la table `informations`
 --
 
 INSERT INTO `informations` (`id`, `titre`, `description`, `image`, `IdTypeInformation`, `IdUser`, `IdCommune`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(2, 'Lulu Feest', 'Temporibus deserunt cumque qui nisi.', 'https://via.placeholder.com/640x480.png/0055cc?text=est', 1, 1, 1, '2022-04-13 17:21:25', '2022-07-01 15:12:45', '2022-07-01 15:12:45'),
-(3, 'Mya Waters', 'Recusandae tenetur voluptas hic ut repudiandae.', 'https://via.placeholder.com/640x480.png/000088?text=nulla', 1, 1, 2, '2022-04-13 17:21:25', '2022-07-01 15:12:51', '2022-07-01 15:12:51'),
-(4, 'Mrs. Viola Volkman', 'Et ex omnis aut.', 'https://via.placeholder.com/640x480.png/00ff77?text=quis', 1, 1, 3, '2022-04-13 17:21:25', '2022-07-01 15:12:53', '2022-07-01 15:12:53'),
-(5, 'Prof. Tod Connelly I', 'Molestiae inventore aut aut sit.', 'https://via.placeholder.com/640x480.png/005566?text=quo', 1, 1, 1, '2022-04-13 17:21:25', '2022-05-12 10:08:22', '2022-05-12 10:08:22'),
-(6, 'Corine Swift', 'Aut qui provident qui nihil deleniti.', 'https://via.placeholder.com/640x480.png/0033ff?text=et', 1, 1, 2, '2022-04-13 17:21:25', '2022-07-01 15:12:56', '2022-07-01 15:12:56'),
-(7, 'Mr. Billy Schulist', 'Explicabo voluptatem qui veritatis at.', 'https://via.placeholder.com/640x480.png/00ffff?text=blanditiis', 1, 1, 3, '2022-04-13 17:21:25', '2022-07-01 15:12:57', '2022-07-01 15:12:57'),
-(8, 'Marjolaine Miller', 'Iste ut dolorem rerum et labore.', 'https://via.placeholder.com/640x480.png/006611?text=omnis', 1, 1, 1, '2022-04-13 17:21:25', '2022-07-01 15:12:59', '2022-07-01 15:12:59'),
-(9, 'Ahmad Hane', 'Vel adipisci magnam harum nam cupiditate nulla.', 'https://via.placeholder.com/640x480.png/00eeee?text=nostrum', 1, 1, 2, '2022-04-13 17:21:25', '2022-07-01 15:13:00', '2022-07-01 15:13:00'),
-(10, 'Kian Bechtelar', 'Et sed et nostrum eligendi qui consequatur.', 'https://via.placeholder.com/640x480.png/00aa00?text=beatae', 1, 1, 3, '2022-04-13 17:21:25', '2022-07-01 15:13:00', '2022-07-01 15:13:00'),
-(11, 'Eugene Pfeffer', 'Sit ad et omnis cumque numquam iusto.', 'https://via.placeholder.com/640x480.png/00aa00?text=placeat', 1, 1, 1, '2022-04-13 17:21:25', '2022-07-01 15:13:01', '2022-07-01 15:13:01'),
-(12, 'Lulu Feest', 'Temporibus deserunt cumque qui nisi.', 'https://via.placeholder.com/640x480.png/0055cc?text=est', 1, 1, 1, '2022-04-13 18:59:01', '2022-06-02 18:59:57', '2022-06-02 18:59:57'),
-(14, 'La Fin Du Monde', 'Jesus revient Bientôt', 'images.jpg', 1, 1, 1, '2022-04-26 11:28:12', '2022-06-02 19:00:18', '2022-06-02 19:00:18'),
-(15, 'La Fin Du Monde', 'Jesus revient Bientôt', 'images.jpg', 1, 1, 1, '2022-04-26 13:41:37', '2022-07-01 15:12:42', '2022-07-01 15:12:42'),
-(16, 'La Fin Du Monde', 'Jesus revient Bientôt', 'images.jpg', 1, 1, 1, '2022-05-10 14:33:23', '2022-07-01 15:12:41', '2022-07-01 15:12:41'),
-(17, 'Embouteillage', 'Embouteillage au Latrille', 'https://via.placeholder.com/640x480.png/00aa00?text=placeat', 1, 5, 1, '2022-05-10 14:38:01', '2022-05-10 14:38:01', NULL),
-(18, 'La Fin Du Monde1', 'Jesus revient Bientôt1', 'images.jpg', 1, 1, 1, '2022-05-10 17:21:41', '2022-07-01 15:13:45', '2022-07-01 15:13:45'),
-(21, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 1, 1, '2022-05-10 17:23:36', '2022-07-01 15:13:44', '2022-07-01 15:13:44'),
-(22, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 2, 1, '2022-05-10 17:24:28', '2022-07-01 15:13:42', '2022-07-01 15:13:42'),
-(23, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 1, 2, '2022-05-10 17:25:45', '2022-06-13 15:28:11', '2022-06-13 15:28:11'),
-(24, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 1, 1, '2022-05-10 17:26:18', '2022-06-13 15:27:59', '2022-06-13 15:27:59'),
-(25, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 1, 1, '2022-05-10 17:26:25', '2022-06-13 15:28:04', '2022-06-13 15:28:04'),
-(26, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 3, 1, '2022-05-10 17:26:32', '2022-06-13 15:28:07', '2022-06-13 15:28:07'),
-(27, 'La Fin Du Monde2', 'Jesus revient Bientôt2', 'images.jpg', 1, 3, 1, '2022-05-10 17:27:09', '2022-06-02 19:01:29', '2022-06-02 19:01:29'),
-(28, 'Festienjaillement', 'Ici on s\'enjaille', 'sqieuhfieghs', 1, 1, 1, '2022-05-11 09:40:32', '2022-07-01 15:12:35', '2022-07-01 15:12:35'),
-(29, 'test avec Lrd', 'Suppression de l\'arret de bus 49', 'https://via.placeholder.com/640x480.png/0055cc?text=est', 1, 7, 2, '2022-05-13 10:29:34', '2022-07-01 15:12:32', '2022-07-01 15:12:32'),
-(30, 'taa', 'xfgsd', 'C:\\fakepath\\Capture d’écran 2022-05-09 à 16.44.57.png', 1, 1, 1, '2022-05-16 10:39:24', '2022-06-03 10:36:29', '2022-06-03 10:36:29'),
-(31, 'taanhrfjh', 'zefzefezf', 'C:\\fakepath\\_1577349094_rR6B8NZXxq.jpeg', 1, 1, 1, '2022-05-16 11:38:42', '2022-06-03 10:36:31', '2022-06-03 10:36:31'),
-(32, 'Embouteillage', 'jkubiu', 'C:\\fakepath\\Barot_Bellingham.jpeg', 1, 2, 1, '2022-05-23 16:01:08', '2022-06-03 10:36:51', '2022-06-03 10:36:51'),
-(33, 'Embouteillage', 'jkubiu', 'Roland.jpeg', 1, 7, 1, '2022-05-27 10:45:52', '2022-06-03 10:36:53', '2022-06-03 10:36:53'),
-(34, 'yo', 'yo is good', 'C:\\fakepath\\badge_osc copie.jpg', 1, 1, 3, '2022-06-02 10:16:54', '2022-06-03 10:36:38', '2022-06-03 10:36:38'),
-(35, 'yoyo', 'yo is good and bad', 'C:\\fakepath\\badge_osc copie.jpg', 1, 4, 3, '2022-06-02 10:27:18', '2022-06-03 10:36:42', '2022-06-03 10:36:42'),
-(36, 'yoyayu', 'yo is good ohoh', 'C:\\fakepath\\badge_osc copie.jpg', 1, 4, 3, '2022-06-02 11:30:03', '2022-06-03 10:36:45', '2022-06-03 10:36:45'),
-(37, 'yoya', 'yo is good ohoh ahh', 'C:\\fakepath\\badge_osc copie.jpg', 1, 4, 3, '2022-06-02 14:25:22', '2022-06-02 19:00:59', '2022-06-02 19:00:59'),
-(38, 'Canalisation', 'le quartier zoza a besoin des tuyaux', 'C:\\fakepath\\badge_osc copie.jpg', 1, 4, 2, '2022-06-13 10:33:57', '2022-07-01 15:12:28', '2022-07-01 15:12:28'),
-(39, 'Rehabilitation urbaine', 'Rehabilitation', 'C:\\fakepath\\_1577349094_rR6B8NZXxq.jpeg', 1, 1, 1, '2022-06-16 17:33:28', '2022-06-16 17:33:28', NULL),
-(40, 'Deguerpissement', 'Deguerpissement', 'C:\\fakepath\\_1577349094_rR6B8NZXxq.jpeg', 1, 1, 1, '2022-06-16 18:17:19', '2022-07-01 15:12:13', '2022-07-01 15:12:13');
+(1, 'Aménagement de la place Sorbonne', 'Nous portons à la connaissance de tous qu\'il est prévu l\'aménagement de la place Sorbonne. Cette place qui a servi jadis de lieu de meetings et autres rencontres s\'est vu delaissée après la crise post electorale. ', 'roland.jpeg', 1, 7, 1, '2022-07-05 13:10:40', '2022-07-05 13:10:40', NULL),
+(28, 'Déguerpissement des maisons Arnachique', 'L’opération « Pour sauver ma vie, je quitte les zones à risques » est entrée dans sa phase active. Elle intervient après une longue période de sensibilisation de proximité menée par le ministre de l’Hydraulique, de l’Assainissement et de la Salubrité, Bouaké Fofana et ses services. Ainsi, les premières maisons situées au bord des ravins sont tombées sous les coups d’une pelleteuse à Abobo Clouétcha.\r\n\r\n', 'image', 1, 7, 1, '2022-07-06 16:39:28', '2022-07-07 23:41:25', '2022-07-07 23:41:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `liker`
+-- Structure de la table `liker`
 --
 
 CREATE TABLE `liker` (
@@ -232,7 +204,7 @@ CREATE TABLE `liker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `liker`
+-- Déchargement des données de la table `liker`
 --
 
 INSERT INTO `liker` (`id`, `IdUser`, `IdProposIdee`, `created_at`, `updated_at`) VALUES
@@ -246,18 +218,21 @@ INSERT INTO `liker` (`id`, `IdUser`, `IdProposIdee`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mappings`
+-- Structure de la table `mappings`
 --
 
 CREATE TABLE `mappings` (
   `id` int(11) NOT NULL,
   `nomProprietaire` varchar(191) NOT NULL,
+  `prenomProprietaire` varchar(191) NOT NULL,
   `numTel` varchar(191) NOT NULL,
+  `image` varchar(191) DEFAULT NULL,
   `nomEntreprise` varchar(191) NOT NULL,
   `descripActivite` text NOT NULL,
   `jsonDonnee` json DEFAULT NULL,
   `latitude` varchar(191) NOT NULL,
   `longitude` varchar(191) NOT NULL,
+  `IdResidant` int(11) DEFAULT NULL,
   `IdCategorie` int(11) NOT NULL,
   `IdCommune` int(11) NOT NULL,
   `IdUser` int(11) NOT NULL,
@@ -267,18 +242,16 @@ CREATE TABLE `mappings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mappings`
+-- Déchargement des données de la table `mappings`
 --
 
-INSERT INTO `mappings` (`id`, `nomProprietaire`, `numTel`, `nomEntreprise`, `descripActivite`, `jsonDonnee`, `latitude`, `longitude`, `IdCategorie`, `IdCommune`, `IdUser`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'el ad', '1232', 'Garba de ladji', 'pour manger Alloco', NULL, '34.1624', '24.2826', 1, 1, 1, '2022-06-30 20:29:14', '2022-06-30 20:29:14', NULL),
-(2, 'el ad', '1232', 'Garba de ladji', 'pour manger Alloco', NULL, '34.1624', '24.2826', 1, 1, 1, '2022-07-01 11:31:24', '2022-07-01 11:31:24', NULL),
-(3, 'el ad', '1232', 'Garba de ladji', 'pour manger Alloco', NULL, '34.1624', '24.2826', 1, 1, 1, '2022-07-01 12:20:55', '2022-07-01 12:20:55', NULL);
+INSERT INTO `mappings` (`id`, `nomProprietaire`, `prenomProprietaire`, `numTel`, `image`, `nomEntreprise`, `descripActivite`, `jsonDonnee`, `latitude`, `longitude`, `IdResidant`, `IdCategorie`, `IdCommune`, `IdUser`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'kamara', 'amed', '+22566305535', 'uploads/ImageMapping/1657277704_mapping.png', 'Boutique de amed', 'Boutique de mangue', NULL, '5.344464435379557', '-4.0193046666231', 2, 4, 2, 4, '2022-07-08 10:55:04', '2022-07-08 10:55:04', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Structure de la table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -288,7 +261,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Déchargement des données de la table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -307,7 +280,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oauth_access_tokens`
+-- Structure de la table `oauth_access_tokens`
 --
 
 CREATE TABLE `oauth_access_tokens` (
@@ -323,7 +296,7 @@ CREATE TABLE `oauth_access_tokens` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oauth_access_tokens`
+-- Déchargement des données de la table `oauth_access_tokens`
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
@@ -346,6 +319,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('02b537c8085f238845b6187cf5741542ea6c8deb42c005913cbc638b00bff64e41edf336031c8703', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:34:29', '2022-05-10 10:34:29', '2023-05-10 10:34:29'),
 ('02e451639cd297a2a16b6539c7400dedaa9ddcd91e7160160c2e70122bf51ec1b43c1425b478cfd8', 4, 9, 'authToken', '[]', 0, '2022-06-02 13:03:22', '2022-06-02 13:03:22', '2022-07-02 13:03:22'),
 ('02ff0b37362be1658a1a2b5f915e2b1e8d2cf7e4469795a98fa9d1b50920a142d0ddb91a568f4496', 1, 5, 'authToken', '[]', 0, '2022-04-12 16:18:45', '2022-04-12 16:18:45', '2023-04-12 16:18:45'),
+('030daaac4f22b1689a1eea3e9989ab8ae284dce9c80987d723364d3fcacf1bdd14f95a195b5a6306', 4, 9, 'authToken', '[]', 0, '2022-07-08 00:20:58', '2022-07-08 00:20:58', '2023-07-08 00:20:58'),
 ('03122b2fdfca0ddac4e52fd6848720c5c4623684235f03cf7c40b99029761aaf4a3a2e4fbb22d75e', 4, 9, 'authToken', '[]', 0, '2022-07-01 19:13:19', '2022-07-01 19:13:19', '2023-07-01 19:13:19'),
 ('03642aaed0cfd9ff1646bb8f11e2d8db57eb123e9879cbfd91b344c5725729bf3aad65999c296915', 4, 9, 'authToken', '[]', 0, '2022-06-27 11:29:11', '2022-06-27 11:29:11', '2023-06-27 11:29:11'),
 ('03ab3c87d53de4791b6e1f8f521650d6e3a913c126a02d746edfb2f7284785ab8359540d6d5e8365', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:55:54', '2022-04-26 12:55:54', '2023-04-26 12:55:54'),
@@ -408,6 +382,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('0e77459932a5267cdc5c85a4a51926fe8e27fa8c5cf954664db788c126f2ee2551a99bdf5bd00c70', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:51', '2022-05-04 13:56:51', '2023-05-04 13:56:51'),
 ('0e8cefc5664b4db8aced2fca3d0fd3d8f2cb7108fa0371685ef75faec3bb8d188ab45e1b41afc94a', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:50:17', '2022-04-19 10:50:17', '2023-04-19 10:50:17'),
 ('0ea7cae280e04e4c93bfe94e6d6090aee0d42d9fc82f24c5a21747cc68b8c7e2fd30007a64070f83', 4, 9, 'authToken', '[]', 0, '2022-06-29 10:10:29', '2022-06-29 10:10:29', '2023-06-29 10:10:29'),
+('0eba888ea706bdd96bc832e6f59610fc432c9fa30994f7183ac733826284f9da19ab19a5c70f2c0e', 4, 9, 'authToken', '[]', 0, '2022-07-08 09:11:16', '2022-07-08 09:11:16', '2023-07-08 09:11:16'),
 ('0f4d819e99c102c8e0e8f40b2ceb5c4ec15f2564c6d82685061fcf9210d03aacfe87bc333cfdc7eb', 7, 5, 'authToken', '[]', 0, '2022-05-05 10:11:06', '2022-05-05 10:11:06', '2023-05-05 10:11:06'),
 ('0f53f5f89d226f2cd1960d8459c21d87d755a993687854cf4c20a3b79a897d9bdd5bac45fe31a8bc', 4, 9, 'authToken', '[]', 0, '2022-06-07 17:06:18', '2022-06-07 17:06:18', '2022-07-07 17:06:18'),
 ('0f5ce463aa88cce05457fe5391622f8c484b1e6ea93006a7a20b8d6cc2785da77ad76613a68c1479', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:58:42', '2022-04-26 12:58:42', '2023-04-26 12:58:42'),
@@ -440,12 +415,14 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('13ca1b2606f2dca5e447e2a3e6832d858174da460b2e857ca04a260c69be633d40a24078bbc029ab', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:21:29', '2022-05-03 19:21:29', '2023-05-03 19:21:29'),
 ('13da7cbbab4f4e657b169bd0d1df991771489da31103e41c0131bf43ea90517f854cf1d3f39599ec', 4, 9, 'authToken', '[]', 0, '2022-06-28 18:56:58', '2022-06-28 18:56:58', '2023-06-28 18:56:58'),
 ('1405e813cd22f06648bb59c7164ff7bc1d5a91d519aaa25178437791bd5c81845172ffb1bdbcf62c', 2, 5, 'authToken', '[]', 0, '2022-04-29 11:31:25', '2022-04-29 11:31:25', '2023-04-29 11:31:25'),
+('142ab47c11ae11426368395b066327018c4d78a250f6fa42ced5048f18424852af10db39058900a1', 4, 9, 'authToken', '[]', 0, '2022-07-05 15:15:34', '2022-07-05 15:15:34', '2023-07-05 15:15:34'),
 ('14423cd6acbd61a1f5e6a38e4889b2fb03b576be623b42adcc3b67852aca0424417c6334205b1ee5', 5, 5, 'authToken', '[]', 0, '2022-04-19 13:05:21', '2022-04-19 13:05:21', '2023-04-19 13:05:21'),
 ('14ae44c31c4ff6ad65a560bc61259cb666a65a36401f26823908cb9e86f7e24a5be25b88cb4d46ff', 11, 5, 'authToken', '[]', 0, '2022-05-10 16:21:48', '2022-05-10 16:21:48', '2023-05-10 16:21:48'),
 ('14c308dd88ef5c7f0901d8a383654cd50a4186a47aed7b2013aa39edc6ba2e6aa7d4403bc365d1a4', 7, 9, 'authToken', '[]', 0, '2022-05-23 16:00:12', '2022-05-23 16:00:12', '2022-06-23 16:00:12'),
 ('15275e6baebafe6b00d4c7dd0a82b4abb61c9d97d21185669a6bbd9446c8b77d63c6674aa877e8b7', 46, 9, 'authToken', '[]', 0, '2022-05-31 12:34:10', '2022-05-31 12:34:10', '2022-07-01 12:34:10'),
 ('153e31b848348d43b5809af4a7726fd9502b2464c167bd832ef9d10d0eb6500922708597a8ac2150', 7, 5, 'authToken', '[]', 0, '2022-04-29 15:52:58', '2022-04-29 15:52:58', '2023-04-29 15:52:58'),
 ('15b76fc93db47b3509a9e2f68e17643b5b785e270a14f62218ac86db60b31f763a779a84ccdbc2b1', 2, 5, 'authToken', '[]', 0, '2022-04-29 11:51:13', '2022-04-29 11:51:13', '2023-04-29 11:51:13'),
+('15dafcd73d5fcd5e82e0c3176021c4a5f10bb7dc8484d705b8340fe94ce3b4769a582e4e79e9cf11', 4, 9, 'authToken', '[]', 0, '2022-07-06 13:51:52', '2022-07-06 13:51:52', '2023-07-06 13:51:52'),
 ('161a8617b9aba09762d7defc31924f6f4f6dc3b87b69194e236d8f922c0057bbb532bce5029216ff', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:54', '2022-05-04 13:56:54', '2023-05-04 13:56:54'),
 ('163dbc33c45f05304a7965893d28e56200b0367a449c3d9b3c6433e707bb40d0688a83806a4cc885', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:05:44', '2022-05-10 10:05:44', '2023-05-10 10:05:44'),
 ('170d11b0877fcdd7f9124c597b76f885dfeba74d8ecdc10774244fd9cba718b07a90709911958789', 4, 9, 'authToken', '[]', 0, '2022-06-13 12:09:26', '2022-06-13 12:09:26', '2022-07-13 12:09:26'),
@@ -484,6 +461,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('1e6f72321460d911d4dd1cb6d2bbf72e6a4a4b54ea575560b683caa8d745faafa492ee5688bfc5e0', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:09:14', '2022-05-10 10:09:14', '2023-05-10 10:09:14'),
 ('1e727fd11dd51c694907a34141f222d22d498ddb439f3ac588da6f65a55962941b34dcb98664b83c', 4, 9, 'authToken', '[]', 0, '2022-06-29 15:18:40', '2022-06-29 15:18:40', '2023-06-29 15:18:40'),
 ('1ebbc2ec3ae3cfb26a04b1a929a6ba8d9bc01bc6cd884d395d987838df278d32b69d08bec0b31b88', 7, 9, 'authToken', '[]', 0, '2022-05-31 12:14:30', '2022-05-31 12:14:30', '2022-07-01 12:14:30'),
+('1ed8906d22a3749cee5aa2c6c8422aa60e2c75e99f233cddd64b8b8b69c55c238f255e5b874cea16', 4, 9, 'authToken', '[]', 0, '2022-07-05 16:01:50', '2022-07-05 16:01:50', '2023-07-05 16:01:50'),
 ('1ef60088a693ca38ab40ecd876f462b59b3d617d37ec410206db6f44a9db563efc02edf8ac4346b9', 4, 9, 'authToken', '[]', 0, '2022-06-23 12:08:40', '2022-06-23 12:08:40', '2023-06-23 12:08:40'),
 ('1f61b0cc34cee2bdaab16e0ca42d8ed570508fa7a4599590d70f659332a8048fd07564615b977be0', 4, 9, 'authToken', '[]', 0, '2022-06-22 15:29:04', '2022-06-22 15:29:04', '2023-06-22 15:29:04'),
 ('1f62f994d356da9f7c980392f72d31ad32f57f41c2eae57fc05652c0860ec7ee548ed370dbd9ef0a', 4, 9, 'authToken', '[]', 0, '2022-06-08 17:32:00', '2022-06-08 17:32:00', '2022-07-08 17:32:00'),
@@ -580,6 +558,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('33cf172c738c706f6280f3235ddcccf1b40b3cf9439b9389cd6bdbb2374c674ab596b08a9730c855', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:52:24', '2022-04-19 10:52:24', '2023-04-19 10:52:24'),
 ('33f0eb503c86cac4779c6072f25e6b671a34e8ade3b3b8269c405b13644d393c5f091ed7b13f3005', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:17:25', '2022-05-10 10:17:25', '2023-05-10 10:17:25'),
 ('344af6ecfa4496690652d1e7f067f5ecaddc3f31da762512e82bd31558827316e72d37752e1cd8ed', 63, 5, 'authToken', '[]', 0, '2022-04-20 14:32:33', '2022-04-20 14:32:33', '2023-04-20 14:32:33'),
+('34507a2461b3c80f530f9b9df5578273ad2ec88f3e2bef64379f542f90aa08b0c28e19328c3da6f4', 4, 9, 'authToken', '[]', 0, '2022-07-06 14:22:36', '2022-07-06 14:22:36', '2023-07-06 14:22:36'),
 ('347332a0c6ad518891014184874417ec8f5b2309463745995a1734cd7921185883d821906d8705ea', 7, 9, 'authToken', '[]', 0, '2022-05-30 11:27:19', '2022-05-30 11:27:19', '2022-06-30 11:27:19'),
 ('34f582bf39eca360ee2d427157c768bcc44614fe054f87ae6715bfbd16cef1d0c2b14298dddca2ca', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:55', '2022-05-04 13:56:55', '2023-05-04 13:56:55'),
 ('354f95b1def1fce596bd6d7259332efec6e94f1ff7bbd408f7b472763e3ca95f6021af98106761fa', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:42:44', '2022-05-10 10:42:44', '2023-05-10 10:42:44'),
@@ -594,14 +573,16 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('36abe6a44c15be27ff0eab1957ba42d5e2ab65c8705f1c3831ebeb1e7a00ee153880db0cb0ffbc23', 4, 9, 'authToken', '[]', 0, '2022-06-01 16:41:41', '2022-06-01 16:41:41', '2022-07-01 16:41:41'),
 ('37169b7b70b77a3564db1cc91ed1a243bdc4e53b8ff7afa071b390e76b09ae1175fdc0332c5d6940', 4, 9, 'authToken', '[]', 0, '2022-06-07 12:12:20', '2022-06-07 12:12:20', '2022-07-07 12:12:20'),
 ('37350ff6d804c50c5518d9e1c36dc955456c5fef389a552a8c922eeb53cb8c419ae6e0326da79ad8', 4, 9, 'authToken', '[]', 0, '2022-06-10 14:26:35', '2022-06-10 14:26:35', '2022-07-10 14:26:35'),
-('373cad797c5e7c5e7fd0c4ba45cde182fc26e3d1df47e1431ccd0cf98487251dc859208d32a09a62', 2, 5, 'authToken', '[]', 0, '2022-04-27 17:10:05', '2022-04-27 17:10:05', '2023-04-27 17:10:05'),
+('373cad797c5e7c5e7fd0c4ba45cde182fc26e3d1df47e1431ccd0cf98487251dc859208d32a09a62', 2, 5, 'authToken', '[]', 0, '2022-04-27 17:10:05', '2022-04-27 17:10:05', '2023-04-27 17:10:05');
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('3768deb37f6f23bf54ede328d3f6f83f42b9d03dea580ddc4da94001873e7a8db42dd81b7104f3df', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:59:12', '2022-04-26 12:59:12', '2023-04-26 12:59:12'),
+('37808a744b2d2a60a2e868478063ffc8b76503aa85325e5f822b66068db7570bf55f0d204c642312', 4, 9, 'authToken', '[]', 0, '2022-07-02 12:54:04', '2022-07-02 12:54:04', '2023-07-02 12:54:04'),
 ('3784d451eb5753a2e510655f4369b4cdb137f1059ab3df82ef2ce630c1516a29612ce3feb60ad24e', 2, 5, 'authToken', '[]', 0, '2022-04-27 17:08:23', '2022-04-27 17:08:23', '2023-04-27 17:08:23'),
 ('37b293a0d972cd2c696ffd7c5de6955c6206c224356b2f5aae3328b329c6f4218962ad03db4d33a8', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:54:36', '2022-04-26 15:54:36', '2023-04-26 15:54:36'),
 ('3808d3cdbdcffe11289ac28729d7202e4ea047cf849a60291ea7231a2eb0324b5f50661db5c87e35', 11, 5, 'authToken', '[]', 0, '2022-05-09 21:44:16', '2022-05-09 21:44:16', '2023-05-09 21:44:16'),
+('380c6319b96f402ccb21f821269fa3580f23c7a897616055fbd1000664750f63cc8c67dfda73680a', 4, 9, 'authToken', '[]', 0, '2022-07-07 23:32:06', '2022-07-07 23:32:06', '2023-07-07 23:32:06'),
 ('383c3641c3c60b9e01750980ab6c3a346147d7208cdc064df7c0de4cecfe3c407eeda8b3644897e3', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:04:28', '2022-05-10 10:04:28', '2023-05-10 10:04:28'),
-('385f7f85bf4cb858ebebf1323708c8d63658558d64c68748a9dec2931b98b1a6aace9a4ba2758cb4', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:53:37', '2022-04-26 15:53:37', '2023-04-26 15:53:37');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('385f7f85bf4cb858ebebf1323708c8d63658558d64c68748a9dec2931b98b1a6aace9a4ba2758cb4', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:53:37', '2022-04-26 15:53:37', '2023-04-26 15:53:37'),
 ('38f5176ea29227e94a9fb351e0f8c8e21cffaae6c4ddf1835c7a7b129116430879c933faa14e9dff', 2, 5, 'authToken', '[]', 0, '2022-04-27 16:22:46', '2022-04-27 16:22:46', '2023-04-27 16:22:46'),
 ('3903e2618c8acbf733c5d1cce87a257a69f9715e8e296a0c42e7e008dca17a63a8b8c3fbb8645d07', 23, 5, 'authToken', '[]', 0, '2022-05-10 13:27:20', '2022-05-10 13:27:20', '2023-05-10 13:27:20'),
 ('391073d59f5432dd1fdcd32beb0cd5d6fc30e8f4164181e15451165bdcd3da30c522f60d00f71a95', 40, 5, 'authToken', '[]', 0, '2022-05-13 17:33:42', '2022-05-13 17:33:42', '2023-05-13 17:33:42'),
@@ -619,6 +600,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('3aad2b6f1a7a0cbda82340ad430c302a6f15a5f3a182e782ba1203cfbe3f0c543b992afa61b93844', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:34:10', '2022-04-19 10:34:10', '2023-04-19 10:34:10'),
 ('3aeb955ef0f9c54e3013d0feb656644ac8258b5b19155db5d6e33cb732ffbf7955e5eaef21fbe27d', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:54:28', '2022-04-26 12:54:28', '2023-04-26 12:54:28'),
 ('3afddc804a2bfff153b7b563be76cb4f0ad077a7d1b388f53f0c02a0db92e32d1990915167dbaf28', 11, 5, 'authToken', '[]', 0, '2022-05-04 10:23:30', '2022-05-04 10:23:30', '2023-05-04 10:23:30'),
+('3b9d48d0b7622bfa69606ff0538bf73ef019ace800aab3f4f81503b4edef51f2fe156729b6241324', 4, 9, 'authToken', '[]', 0, '2022-07-06 14:29:23', '2022-07-06 14:29:23', '2023-07-06 14:29:23'),
 ('3bca4367cb69cd38709327a16bb2f1649c00e0fbc8a428f2f83a7451fc869c5d401d4be79894adda', 110, 5, 'authToken', '[]', 0, '2022-04-20 15:17:35', '2022-04-20 15:17:35', '2023-04-20 15:17:35'),
 ('3bf00e99de8503c890269ff0673f03a506cda756dd8dff48dad9acd3a60b5b47fb13032578cb5b63', 7, 9, 'authToken', '[]', 0, '2022-05-24 09:21:34', '2022-05-24 09:21:34', '2022-06-24 09:21:34'),
 ('3c428a4b5b5fda14ae9109f0db0c6dca3b1db7710753ebaf4397d81a4dc7b927ba445c3939a7e8e1', 4, 9, 'authToken', '[]', 0, '2022-06-28 17:57:37', '2022-06-28 17:57:37', '2023-06-28 17:57:37'),
@@ -705,7 +687,9 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('4d6d662645afc809344f6b23a00a5d50f0f7890f901e9017b6d61ec4e9103fa1841e93d03a0f9305', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:01:25', '2022-05-03 19:01:25', '2023-05-03 19:01:25'),
 ('4d7b2afd200edfd9c425c68657e14faa5bf2fcfdbee68aa0610e3e6c9de32f2dc578c5e8cfeac380', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:57:20', '2022-05-04 13:57:20', '2023-05-04 13:57:20'),
 ('4da1360a638fa2e7ea2d108143ff4f38cac80d1889882cf0286ffb79240c13989b3f9b47891f3f1b', 4, 9, 'authToken', '[]', 0, '2022-06-07 14:42:13', '2022-06-07 14:42:13', '2022-07-07 14:42:13'),
+('4daf5358d316f71d9a296cc3ddf457b3a999d95db71ff71803c14b8db4d7259806b5606a0afc9396', 4, 9, 'authToken', '[]', 0, '2022-07-08 07:18:34', '2022-07-08 07:18:34', '2023-07-08 07:18:34'),
 ('4e10d77e67c6352984d08d0f75bd2f90f02e3cf249522f4fcf4b23c01c15111ef1c3631845ebefa4', 7, 5, 'authToken', '[]', 0, '2022-04-29 15:45:43', '2022-04-29 15:45:43', '2023-04-29 15:45:43'),
+('4eb78999fc76fe291794ef41ca0ce2e2eb075e9f60ed0d61360f3e6bc5113d94586092ba41f17980', 4, 9, 'authToken', '[]', 0, '2022-07-07 23:38:49', '2022-07-07 23:38:49', '2023-07-07 23:38:49'),
 ('4eb9e3dafb66c2056f518f68912ead7da09d835668d952b51c0f443ec802add5938c6d2c6854b11f', 4, 9, 'authToken', '[]', 0, '2022-06-24 09:36:51', '2022-06-24 09:36:51', '2023-06-24 09:36:51'),
 ('4ed86ea5df84d8c7fb33db2def5474cc4482e0f06133092ed6c75ce8851b84e93a562eab1ff98bd6', 7, 9, 'authToken', '[]', 0, '2022-06-01 12:40:19', '2022-06-01 12:40:19', '2022-07-01 12:40:19'),
 ('4f0491fb427aa8559f36880a637594aa95b36c1a6f7d899947836d9256860d794bfc70d846a1b85d', 11, 5, 'authToken', '[]', 0, '2022-05-10 16:32:39', '2022-05-10 16:32:39', '2023-05-10 16:32:39'),
@@ -731,6 +715,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('531b682f7f239188088e80a7c108242771e7d9dbd25ebc0063e17edb071e61ce8b6d4e8f822032a9', 4, 9, 'authToken', '[]', 0, '2022-06-13 11:25:07', '2022-06-13 11:25:07', '2022-07-13 11:25:07'),
 ('5333aef9d94f41ed1d32b8562208892bdc7caeb2d09236d435b0ab56b572d61661cc6226d7162e01', 4, 9, 'authToken', '[]', 0, '2022-07-01 12:29:56', '2022-07-01 12:29:56', '2023-07-01 12:29:56'),
 ('535ddd2779c8f5001b7c38ebd4a657358ec66e037c6d29dc6b9e5d992c2d756892a907e0aa1ec662', 7, 9, 'authToken', '[]', 0, '2022-05-30 12:17:09', '2022-05-30 12:17:09', '2022-06-30 12:17:09'),
+('539b1864c6460a401348e79fe1257ba30223581db402ec21187e798410847fb121dfb301c0dd9aff', 4, 9, 'authToken', '[]', 0, '2022-07-06 11:44:13', '2022-07-06 11:44:13', '2023-07-06 11:44:13'),
 ('5400cbf4bf07b92fb7ce8cb51fccecaef13c88f7b46d7f7308ad4b7ffb951d040b64384dce427846', 48, 9, 'authToken', '[]', 0, '2022-06-13 14:45:21', '2022-06-13 14:45:21', '2022-07-13 14:45:21'),
 ('5438473f150e18d096cfb6bc273827d5b5174d53a32db3873079a7e64f3afe339ca620349dc8c5ac', 4, 9, 'authToken', '[]', 0, '2022-07-01 17:27:18', '2022-07-01 17:27:18', '2023-07-01 17:27:18'),
 ('54fc3a2bb20394a0c61d9592bc4986a70a46e78d87d018e61fd303238181823eb2b4d6e4953f7489', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:54:37', '2022-04-26 15:54:37', '2023-04-26 15:54:37'),
@@ -751,6 +736,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('57edc5e4579ef16136494e3fa703cf3e4c2e80bed8e25cd2926dd507495c0aa3de45e5db1369d720', 7, 5, 'authToken', '[]', 0, '2022-05-20 11:05:17', '2022-05-20 11:05:17', '2023-05-20 11:05:17'),
 ('5801245d09225792964ca4010b86569d24cf56a24b73dc1df6d44c50f61ef5dabf88faa8c0a5aa35', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:54:29', '2022-04-26 15:54:29', '2023-04-26 15:54:29'),
 ('580687623819c0ce95fde44ada7befff77e682bbdb2b6dd38744f7928ad674d539378a0655c63622', 7, 5, 'authToken', '[]', 0, '2022-04-29 16:52:44', '2022-04-29 16:52:44', '2023-04-29 16:52:44'),
+('581f7868f9d2ff8dc3373e2787cfd71501a72b7b279fd8d3cd25c467b93a57ee2286ff17002490fe', 4, 9, 'authToken', '[]', 0, '2022-07-04 11:51:36', '2022-07-04 11:51:36', '2023-07-04 11:51:36'),
 ('582570d460395cdb428204e089a0e74a772b939136a097877ed00ed71900519efb8561782b5ab8b3', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:52', '2022-05-04 13:56:52', '2023-05-04 13:56:52'),
 ('58c4f407cf32d0422cf49cbd447b6caedf613226ade4f9307ad0ba95553e5fb984a209a14f7d3aa7', 4, 9, 'authToken', '[]', 0, '2022-07-01 18:09:14', '2022-07-01 18:09:14', '2023-07-01 18:09:14'),
 ('58cd5b6391f65c575f04f32c9b57134f31085daa1572e577727b3afb5de990b44839428580a0d72f', 11, 5, 'authToken', '[]', 0, '2022-05-10 16:27:06', '2022-05-10 16:27:06', '2023-05-10 16:27:06'),
@@ -761,6 +747,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('5a367aaa5a802ea82c491e1073505e20b4203ed748043b07449adfdeb01e9cf17d8fd80abe2fd015', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:12:46', '2022-05-03 19:12:46', '2023-05-03 19:12:46'),
 ('5a370a50259bb2f1799b4a6d2af06da48f3ed4cc4487b51becaf7e2caa1de655055f54c55c61ce02', 40, 5, 'authToken', '[]', 0, '2022-05-19 18:36:26', '2022-05-19 18:36:26', '2023-05-19 18:36:26'),
 ('5a3918398f64b9f2f119f2b6b0bf2dd11727f4aa3e63b8e892fe50a6b47270ecf3c1ef7c88b494bd', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:09:46', '2022-05-03 19:09:46', '2023-05-03 19:09:46'),
+('5aa7ef92613b1d25740359a37c9bc7a2533e7a9cd0d40b8ab941892556ab1a11f016f7053f0d536d', 4, 9, 'authToken', '[]', 0, '2022-07-06 16:18:58', '2022-07-06 16:18:58', '2023-07-06 16:18:58'),
 ('5aa8c23c129882641db9c8d15bc62d2e6f3059f8d0c29616c29356142228421170814a348a0e2b88', 5, 5, 'authToken', '[]', 0, '2022-04-20 09:42:07', '2022-04-20 09:42:07', '2023-04-20 09:42:07'),
 ('5ad662eeef5b588dadb0859d5fd7fe13329e7d2ef9c46ab357055261824449f284ef56627e07a70f', 7, 9, 'authToken', '[]', 0, '2022-05-23 15:38:29', '2022-05-23 15:38:29', '2022-06-23 15:38:29'),
 ('5b003eab8c583ca8a4acf9281318ef95740adcfaa8a8990a65123c15e03f1962fd66d020cbec3e50', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:09:14', '2022-05-10 10:09:14', '2023-05-10 10:09:14'),
@@ -782,12 +769,14 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('5df6912c7f1ed1e5f1c4931efe8398b963ac55030380038f55b2361c247bce4c28208345e057bd2b', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:06:58', '2022-05-10 10:06:58', '2023-05-10 10:06:58'),
 ('5dfee9af671b25f95c600e0b932019b0ea91723ddc5077898b58cae41b0d240c64ca63d1cd2fb6c0', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:52', '2022-05-04 13:56:52', '2023-05-04 13:56:52'),
 ('5e1318aa0f843969a6e464d8278aa1e50a7bd38c738d5665cd083ed8d2aea18f07f27bb8c84349e4', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:30:01', '2022-05-19 11:30:01', '2023-05-19 11:30:01'),
+('5e15b140b9aa88ec3a90428797464bb62de3d6c8ea9852b0123550a097f4dd495327b0920655e30b', 4, 9, 'authToken', '[]', 0, '2022-07-07 15:18:33', '2022-07-07 15:18:33', '2023-07-07 15:18:33'),
 ('5e5844168e4918ed17148c6c26c3dc14da5129c0cf73611a6dbaa87a4d2e001cdef22097e01c59f5', 4, 9, 'authToken', '[]', 0, '2022-06-27 11:49:31', '2022-06-27 11:49:31', '2023-06-27 11:49:31'),
 ('5e8e27486455747bd754e1544b82ad9275818af89570738e4e8b74cf5cdac8be7da4e8956b58b633', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:06:44', '2022-05-03 19:06:44', '2023-05-03 19:06:44'),
 ('5e96aed68441f3c227455888a2a5870e8b8b463fea530d88b95270539d40eecdbffe5fd76e93b5eb', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:32:12', '2022-05-19 11:32:12', '2023-05-19 11:32:12'),
 ('5ee7bbee13099b8e5b575031ac01f9b928865acea366a6ffce998d9227ef81a8eeb897b26af2d979', 2, 5, 'authToken', '[]', 0, '2022-04-29 10:18:14', '2022-04-29 10:18:14', '2023-04-29 10:18:14'),
 ('5f157408765cf6ccecd6644525fbcf9e436f00b75418d9ebb607e3ad2c45d936469cc1b34c219479', 41, 5, 'authToken', '[]', 0, '2022-05-18 18:29:18', '2022-05-18 18:29:18', '2023-05-18 18:29:18'),
 ('5f608ab6789d4a84adebfbc86e88c5cd4a1d0e56d52e264db1cc1d7da5e2a0ec75b61fe7581d2a7d', 11, 5, 'authToken', '[]', 0, '2022-05-04 12:25:36', '2022-05-04 12:25:36', '2023-05-04 12:25:36'),
+('5fcd02b73934373c2f72038323ea319dd2ed2373cb2717e0cb4a552f5d640327e6fe72ded8759b69', 4, 9, 'authToken', '[]', 0, '2022-07-08 06:00:43', '2022-07-08 06:00:43', '2023-07-08 06:00:43'),
 ('5fd6103cc453ada41133d918d2ea7be4a3a287f3a58917b22c75e3c655a37f8d8f16773e75c61040', 7, 9, 'authToken', '[]', 0, '2022-05-24 18:20:48', '2022-05-24 18:20:48', '2022-06-24 18:20:48'),
 ('5fda753e418a483acb6358dd17752eef2925aa607533d14cb030389c232df1abb6d1948968114c58', 7, 9, 'authToken', '[]', 0, '2022-05-27 15:16:53', '2022-05-27 15:16:53', '2022-06-27 15:16:53'),
 ('5ffece9690999bb65d4f4579493fc169f066c887a6e4570306b89f917f1a950eb481dafa3eb415a5', 4, 9, 'authToken', '[]', 0, '2022-06-09 18:57:02', '2022-06-09 18:57:02', '2022-07-09 18:57:02'),
@@ -798,6 +787,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('60bb8becba63f7d27cd19690d5d8ed9da962342d86d884aa0d4bd6ff3cdd83f1ebc3bf0bde164cab', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:55:52', '2022-04-26 12:55:52', '2023-04-26 12:55:52'),
 ('60f4aa8b4cdd08cd666de0c6dcf2f1b35034f4de9321c7eb8633ce7ea0f241500aa4340daeb12890', 46, 9, 'authToken', '[]', 0, '2022-06-22 11:34:01', '2022-06-22 11:34:01', '2023-06-22 11:34:01'),
 ('6143afa4baf5c6b36c9e5190cd320199a6b99c116d544c790fc4b2020a4363c912883ed701148fef', 7, 9, 'authToken', '[]', 0, '2022-05-23 15:33:38', '2022-05-23 15:33:38', '2022-06-23 15:33:38'),
+('61582581f6408d60e384d7f7b44c55c0c6febfb9a482a95ece009eba7f5801049c5b78d7da204a19', 4, 9, 'authToken', '[]', 0, '2022-07-06 14:26:20', '2022-07-06 14:26:20', '2023-07-06 14:26:20'),
 ('6178021b32d66e49439163b17ce731bb3ff3885c52aecfa52e5f97930b71dc5a0706b97730d3ae36', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:26:36', '2022-05-10 10:26:36', '2023-05-10 10:26:36'),
 ('61fcb46761dfd9c7f9e56c339c543ec332e43d8f4c09c354c254e13195d3924f92f4c1c1ccd21cae', 7, 5, 'authToken', '[]', 0, '2022-05-05 16:05:47', '2022-05-05 16:05:47', '2023-05-05 16:05:47'),
 ('61fe4924835184df4953b7bfd59757db5eab106f51affbbcda9a09c44704e8774c8359e059c35913', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:01:12', '2022-05-20 17:01:12', '2023-05-20 17:01:12'),
@@ -817,11 +807,13 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('6328d3ccac0056598a1616d05008cbdfa2c1b0d23c8a6b1a8757608704ed6383a7061a44434fd8ae', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:47:42', '2022-04-19 10:47:42', '2023-04-19 10:47:42'),
 ('63510933ee4663aaf6e6a99360146498685f525939123400a5307b5f4ab75ace70e31de0270db3b0', 7, 5, 'authToken', '[]', 0, '2022-05-04 16:30:20', '2022-05-04 16:30:20', '2023-05-04 16:30:20'),
 ('63545632724a374bd5d19fd50af0a5aca827775c2aef1cbc756f8a096723d60023a3ee9fb8e19fae', 7, 9, 'authToken', '[]', 0, '2022-05-30 11:40:57', '2022-05-30 11:40:57', '2022-06-30 11:40:57'),
+('63988508460e5a43ca0c22f6399fa7c7e0e79f342d63a4feeda7af5cd12690059e39efb7c770bc40', 4, 9, 'authToken', '[]', 0, '2022-07-07 17:32:34', '2022-07-07 17:32:34', '2023-07-07 17:32:34'),
 ('64139a21d175290949a400e2c6c698a8bc3f8923353a09ca8e8d57090f8234c45086a412fd5270f8', 11, 5, 'authToken', '[]', 0, '2022-05-03 20:00:42', '2022-05-03 20:00:42', '2023-05-03 20:00:42'),
 ('64602a28630bb20abe65dbd4190640098f56a5d0344b0a0fc8edbaabd3c8d2c488deb2a47692bfaf', 7, 9, 'authToken', '[]', 0, '2022-05-31 11:37:08', '2022-05-31 11:37:08', '2022-07-01 11:37:08'),
 ('64846b0a82b0dd59b3becf4bbe7a12615252b702f78f9b8b6a915f23561f9d5ac7aa465db0562bd8', 7, 9, 'authToken', '[]', 0, '2022-05-31 12:32:56', '2022-05-31 12:32:56', '2022-07-01 12:32:56'),
 ('6493f7d0ae993ec71be6199223345b991d941deec50c093f9a373f0857482d37a7273f69b694b18e', 2, 5, 'authToken', '[]', 0, '2022-04-27 15:33:44', '2022-04-27 15:33:44', '2023-04-27 15:33:44'),
 ('64b00b3ec1e192cc9006f693cfaac7e54e72f1445cda5e083d50affe882b1195c3fcb1c757d41cc8', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:34:30', '2022-05-10 10:34:30', '2023-05-10 10:34:30'),
+('64e42af1177f27bced33cf46695f71f8a237a8dbbb0a35b6876e1896427163406cbac51d79d87348', 4, 9, 'authToken', '[]', 0, '2022-07-08 09:35:10', '2022-07-08 09:35:10', '2023-07-08 09:35:10'),
 ('654b8454e1f07be2145f5a644802310601bd1d88a0273a270112c8e01110b7b0aeef6692a5cdce6a', 7, 9, 'authToken', '[]', 0, '2022-05-24 09:38:53', '2022-05-24 09:38:53', '2022-06-24 09:38:53'),
 ('656e953b937e4fe20ecfd34cf6e7a229603883a4bc69271f9bf34d49abbb620525ab9163f55eb94b', 40, 5, 'authToken', '[]', 0, '2022-05-20 16:02:48', '2022-05-20 16:02:48', '2023-05-20 16:02:48'),
 ('658e3ed5288f087babb948f802151283bb9018ece5fa75169ed5d72fc1024dcaeb4ff6da0dbe5390', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:49:46', '2022-04-19 10:49:46', '2023-04-19 10:49:46'),
@@ -856,7 +848,9 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('6a1e5deffe633b708462cb724c588553a0e9b826cb88fa1842640c63b8b8faa9fb29921916b4ab02', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:26:32', '2022-05-10 10:26:32', '2023-05-10 10:26:32'),
 ('6a52b2459fed729076fccd8794de7afeaa81b07ef1656c126d662306960410328be6be0c0e22d13b', 40, 5, 'authToken', '[]', 0, '2022-05-20 19:39:31', '2022-05-20 19:39:31', '2023-05-20 19:39:31'),
 ('6a56fceffbe8c6dbf287528a8bfb4222ae417acc8d1ba2b5e29f6f1792996a0240188c8996e0bb6e', 5, 5, 'authToken', '[]', 0, '2022-04-19 11:00:18', '2022-04-19 11:00:18', '2023-04-19 11:00:18'),
-('6aa1e7c2d5f176ade97dc2ec2a1945c223b1524526eaa1bb20d059894deeb614754bbdbbf6290315', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:17:26', '2022-05-03 19:17:26', '2023-05-03 19:17:26'),
+('6aa1e7c2d5f176ade97dc2ec2a1945c223b1524526eaa1bb20d059894deeb614754bbdbbf6290315', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:17:26', '2022-05-03 19:17:26', '2023-05-03 19:17:26');
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('6b01763e056b21f4b7794c60b4783c3975ff43ba793c2655e8940f9dd028d25ea532e8b8564f3394', 4, 9, 'authToken', '[]', 0, '2022-07-08 01:33:35', '2022-07-08 01:33:35', '2023-07-08 01:33:35'),
 ('6b024fb39f762f592105824ece16172e4a8fafab7a5ab3b1d18e7fecbf0bc94b75244ee75a4f9ed3', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:30:01', '2022-05-19 11:30:01', '2023-05-19 11:30:01'),
 ('6b2ddb2b341a46f4b31439fa05acf651b5234887c891a7a0e44864ba2e5c20c25f17679770e2d8f1', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:17:26', '2022-05-03 19:17:26', '2023-05-03 19:17:26'),
 ('6beba5a2b8e51de35fe8c0408add89c41f1760796a0e283c66d827bd15bab7c231727167b861e015', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:42:04', '2022-05-10 10:42:04', '2023-05-10 10:42:04'),
@@ -875,8 +869,8 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('6dd03e2de0e3aa6652041d43aac535ea0d2c75dc56d02443f0d2fbabccfc9149badc5e35ff250e09', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:09:18', '2022-05-10 10:09:18', '2023-05-10 10:09:18'),
 ('6e0c1e669ddb51f35bf0329b4a6e267d5dd3e0954e5a1f4a8dd5c0adaf6b51caab8e7bf326529873', 5, 5, 'authToken', '[]', 0, '2022-04-15 15:04:52', '2022-04-15 15:04:52', '2023-04-15 15:04:52'),
 ('6e10f91e5d55f707883eb16d0a113b8170596c02469b114c3ecc3c009648bd077d479bc6bf7039a5', 7, 5, 'authToken', '[]', 0, '2022-05-05 15:56:26', '2022-05-05 15:56:26', '2023-05-05 15:56:26'),
-('6e212d94dc386a4a63f10d3cf172c2172c3e33244f508f6f9937ff50901360cc8b703f59c1cbc559', 8, 5, 'authToken', '[]', 0, '2022-05-03 11:05:41', '2022-05-03 11:05:41', '2023-05-03 11:05:41');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('6e1f9e0c4abe7db9e9f89c2a783ae96234da7d1f99383baf6785d46ab22b6e2d55436b9b237c880a', 4, 9, 'authToken', '[]', 0, '2022-07-07 11:35:11', '2022-07-07 11:35:11', '2023-07-07 11:35:11'),
+('6e212d94dc386a4a63f10d3cf172c2172c3e33244f508f6f9937ff50901360cc8b703f59c1cbc559', 8, 5, 'authToken', '[]', 0, '2022-05-03 11:05:41', '2022-05-03 11:05:41', '2023-05-03 11:05:41'),
 ('6e2dea41ec65ff05878dbce8df083e5ffc27d06ac1231d8f675380bff2d97f13be864dc0e6894a2c', 4, 9, 'authToken', '[]', 0, '2022-06-15 21:00:40', '2022-06-15 21:00:40', '2023-06-15 21:00:40'),
 ('6e75bfa428dfd51ddfad8484ef5c3e68fbf8c08acc61c1e0a3fc7c8b5fff402a9f32fb36bba42ec2', 4, 9, 'authToken', '[]', 0, '2022-06-27 15:36:01', '2022-06-27 15:36:01', '2023-06-27 15:36:01'),
 ('6e9c71d00296cbe17b3f33fd15db45406d1b57091202c0808a0419a4c5177b6a4a5db3a243aa76a9', 2, 5, 'authToken', '[]', 0, '2022-04-26 13:00:36', '2022-04-26 13:00:36', '2023-04-26 13:00:36'),
@@ -919,6 +913,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('762d0a5dd5cd75d5fb58b48aa3842e1f97f6d776ebeba3d9aa084d2f5c56e2f26a4bc2eabfd19bb0', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:37:55', '2022-05-20 17:37:55', '2023-05-20 17:37:55'),
 ('7663bb8fa55a9105a02a49d0231aebd01f0aebdf6aa4de3574bc6f2f60e1f8855e345b4cf1cdab4b', 2, 5, 'authToken', '[]', 0, '2022-04-29 10:18:46', '2022-04-29 10:18:46', '2023-04-29 10:18:46'),
 ('76b4100c3a94de0bd0277ce00c1847441a99913f5a9cb3cbf8b1e176d6f4a4441e53648dbfd5e38d', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:19:30', '2022-05-03 19:19:30', '2023-05-03 19:19:30'),
+('76b62e7eeba826f4432735b617abd808c49d6d90f333e1f56acd915a7724ffb240e7bfbbaf7f5a50', 4, 9, 'authToken', '[]', 0, '2022-07-04 10:06:11', '2022-07-04 10:06:11', '2023-07-04 10:06:11'),
 ('7738495c39cefe587429bdb9bf5fb3fa2fd84ec00fc4f85c3c61dfee78653d5f27da250dfc480ec6', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:14:31', '2022-05-10 10:14:31', '2023-05-10 10:14:31'),
 ('7741ed6eec7b76d3a349d9451d790369264f728e6e3704686f107977889b921dd152dccf003dbc92', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:55:13', '2022-04-26 15:55:13', '2023-04-26 15:55:13'),
 ('7745a99cdd12943067d283128900cc870923f16702185d0d7b819235bbb35dde543bbaa32138b0c4', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:30:32', '2022-05-19 11:30:32', '2023-05-19 11:30:32'),
@@ -1128,7 +1123,8 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('a12e1f76863476c6da37ac73952f9b62add9a5cec2f3ee7069047dffe76a22164c9a31108359316b', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:09:18', '2022-05-10 10:09:18', '2023-05-10 10:09:18'),
 ('a144d756daedc17f84252724a98b7cda9998b841ede4041c6fcfdcac90c896b00e9e99ee41325922', 2, 5, 'authToken', '[]', 0, '2022-04-26 15:56:20', '2022-04-26 15:56:20', '2023-04-26 15:56:20'),
 ('a14bcdd5252a9c8ec11ca735bb863c544262096291d3617fbfae30ec68cc205e4912c288d0dda873', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:33:57', '2022-04-19 10:33:57', '2023-04-19 10:33:57'),
-('a1518fda72cf0f33ee0dbe66a8ff104227b73f9eda22a95f474da17d8ae1510b4e189d9d77c0695c', 4, 9, 'authToken', '[]', 0, '2022-06-07 10:18:21', '2022-06-07 10:18:21', '2022-07-07 10:18:21'),
+('a1518fda72cf0f33ee0dbe66a8ff104227b73f9eda22a95f474da17d8ae1510b4e189d9d77c0695c', 4, 9, 'authToken', '[]', 0, '2022-06-07 10:18:21', '2022-06-07 10:18:21', '2022-07-07 10:18:21');
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('a174efe9a65a58ed666ae757a24bbfdf3d8a98640e3f9d8cef9716cba759407d2777a474b8af13e0', 2, 5, 'authToken', '[]', 0, '2022-04-27 14:27:37', '2022-04-27 14:27:37', '2023-04-27 14:27:37'),
 ('a18cfa5d273c726699a981db85def470baea038e8ff13a5424fd57ab6dec3474da5fd3659379f35e', 7, 9, 'authToken', '[]', 0, '2022-05-23 16:55:54', '2022-05-23 16:55:54', '2022-06-23 16:55:54'),
 ('a1b69505f762e32433703b2bf4e5d7e4a8f0da38e6c4492c499775563ca0603be233a301d6482d82', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:32:34', '2022-05-03 19:32:34', '2023-05-03 19:32:34'),
@@ -1137,6 +1133,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('a2034dc77c7556b5a552bde41ba81fa817fe2ed3474cd5c3119219d9a541681bc87c670057dd9378', 40, 5, 'authToken', '[]', 0, '2022-05-13 16:32:14', '2022-05-13 16:32:14', '2023-05-13 16:32:14'),
 ('a22cf39e9b7518e6d6f3945f0c836e1ceb719bf49c598a1332e75013333503ee3a21493abeee67f4', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:55:52', '2022-04-26 12:55:52', '2023-04-26 12:55:52'),
 ('a27fdfa516f2028e92378380698fe3e7f70387c93d27c835ace6336a9e33a0b0552ad4830895bc50', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:47:16', '2022-05-20 17:47:16', '2023-05-20 17:47:16'),
+('a2c990522b5d733381dd6d1d6d6d773ce61098015daf0f02fec52f220ebebebc29300d9318eeee69', 4, 9, 'authToken', '[]', 0, '2022-07-08 00:24:14', '2022-07-08 00:24:14', '2023-07-08 00:24:14'),
 ('a2cb4c159aa44e364409c7c16a70055773072e79ec3426c3a180b394df8534a2721a34baee111f8d', 4, 9, 'authToken', '[]', 0, '2022-06-07 15:34:23', '2022-06-07 15:34:23', '2022-07-07 15:34:23'),
 ('a308d9b057428241f98c616868cbd245ed02b21fd2895b7bc84f5287ce307a5027f69f52e27fff24', 4, 9, 'authToken', '[]', 0, '2022-06-01 17:07:23', '2022-06-01 17:07:23', '2022-07-01 17:07:23'),
 ('a3273793f9ce583348de916d2c2a206c77e2fb2fd8e3e7c312c3c2f5b4f413aadaa2a600f2a5ede9', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:56:55', '2022-05-04 13:56:55', '2023-05-04 13:56:55'),
@@ -1150,11 +1147,11 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('a477dfce9d5e76525d19759599fe8398b4d46c49d2001b998afa26d3ef8fcceaf9ebc6bc60692c55', 4, 9, 'authToken', '[]', 0, '2022-06-03 16:49:45', '2022-06-03 16:49:45', '2022-07-03 16:49:45'),
 ('a4856b66f37f9989a967423a9c41d4299542cd714f0f8ae032f8bfca4de47709f2527224ed7370e5', 4, 9, 'authToken', '[]', 0, '2022-06-28 17:15:59', '2022-06-28 17:15:59', '2023-06-28 17:15:59'),
 ('a4977a4ecacb933c05ce207010da79cf0293ccc86b7aeba3389dc98b1bb0b8d2dbf776c79ef64f28', 15, 5, 'authToken', '[]', 0, '2022-04-20 09:42:37', '2022-04-20 09:42:37', '2023-04-20 09:42:37'),
-('a4a8a067eb66e9673da1d18768d10613fb5e27e60796856d207a9cc6c2480a53e8043c218acc09e8', 40, 9, 'authToken', '[]', 0, '2022-05-23 09:59:27', '2022-05-23 09:59:27', '2022-06-23 09:59:27');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('a4a8a067eb66e9673da1d18768d10613fb5e27e60796856d207a9cc6c2480a53e8043c218acc09e8', 40, 9, 'authToken', '[]', 0, '2022-05-23 09:59:27', '2022-05-23 09:59:27', '2022-06-23 09:59:27'),
 ('a4be80aece600b701fc55c080b2e0df3828e658f6378730b9f8f932ac0deb925d62b0f02d32d876c', 110, 5, 'authToken', '[]', 0, '2022-04-20 15:17:37', '2022-04-20 15:17:37', '2023-04-20 15:17:37'),
 ('a511a94da651baaff685140c676042b9c37e6d2dc9d39457ff6979232d28849ccd069db68601b784', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:49:28', '2022-05-10 10:49:28', '2023-05-10 10:49:28'),
 ('a523bd6f9480c7510b184d3bb886634654bb6691b00c38519218aa1955f362b159d5b5f72871fc4c', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:27:30', '2022-05-20 17:27:30', '2023-05-20 17:27:30'),
+('a5326f02b606ced7318c0e4ae389240bcadebd126a0ea2e4311e519e8bd466a3b2bc49bc128811a0', 4, 9, 'authToken', '[]', 0, '2022-07-07 15:32:26', '2022-07-07 15:32:26', '2023-07-07 15:32:26'),
 ('a56f6b4e62a6d98bcf61f27d5ab2104d2b9bd74c5a520845becfdedb0b8e425653bc90ebea1ee4ea', 5, 5, 'authToken', '[]', 0, '2022-04-19 12:26:11', '2022-04-19 12:26:11', '2023-04-19 12:26:11'),
 ('a594e8c651696091d2b3834cc16e1aef1aad30a53b9daed622bd5ac39760c82578971470cac2527e', 11, 5, 'authToken', '[]', 0, '2022-05-10 14:22:07', '2022-05-10 14:22:07', '2023-05-10 14:22:07'),
 ('a5ca7223bb6a098e72e2b020a5e1eb3c4780b7a729ab1573933ffd4c8746e6209ee1cd51c8fa466c', 2, 5, 'authToken', '[]', 0, '2022-04-27 17:08:23', '2022-04-27 17:08:23', '2023-04-27 17:08:23'),
@@ -1249,6 +1246,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('b77d1b52ef96fafe4278ce96352c109962fabb414fbd8cad47add3f7128aacc5e5813caf87a9ff1b', 5, 5, 'authToken', '[]', 0, '2022-04-20 09:53:16', '2022-04-20 09:53:16', '2023-04-20 09:53:16'),
 ('b797694dc8a15ea49a26d05f1de9792db7a494bd3a92de413b690b3c737f76e19733eb765cd346c3', 11, 5, 'authToken', '[]', 0, '2022-05-10 16:20:55', '2022-05-10 16:20:55', '2023-05-10 16:20:55'),
 ('b7cd287a0cdc510a9219489442ff5f88691a9cd9ea8e08ed793780109bdf4784004a8f79cd05a823', 2, 5, 'authToken', '[]', 0, '2022-04-29 15:21:10', '2022-04-29 15:21:10', '2023-04-29 15:21:10'),
+('b8681cb32c3219a0125d0b2d7b0e4b5b9eb9ba9915d96971a3364fa4f21621e37f71b27ee6065008', 4, 9, 'authToken', '[]', 0, '2022-07-05 16:01:50', '2022-07-05 16:01:50', '2023-07-05 16:01:50'),
 ('b879e5f3549ba750dfdd070bd01efa2218f0260b1a4c91ea3e94ae4cece1e97c8f5f54e17e6cb42a', 46, 9, 'authToken', '[]', 0, '2022-05-30 14:50:40', '2022-05-30 14:50:40', '2022-06-30 14:50:40'),
 ('b882eed4323b84a0bf2033dca3dcb5e88528d0cd78619ca45a00ab64a2e10fde9da8484fb6ee1c3d', 23, 5, 'authToken', '[]', 0, '2022-05-10 13:26:55', '2022-05-10 13:26:55', '2023-05-10 13:26:55'),
 ('b883aa2309d113651f37bdeea4a47e5fad3ee8211bf886c89282d63fa8551006e498a0961e633dee', 5, 5, 'authToken', '[]', 0, '2022-04-19 11:05:44', '2022-04-19 11:05:44', '2023-04-19 11:05:44'),
@@ -1292,6 +1290,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('c1ee9a3dd2a0af642c3644960fe2e385635a86113d67b2c2062dc2fb76f480472ef6ec0469bc7303', 7, 5, 'authToken', '[]', 0, '2022-04-29 16:56:48', '2022-04-29 16:56:48', '2023-04-29 16:56:48'),
 ('c1f5cfc7bd8214809fdea29e9e375e1bec6fbe10de7f1c25ea271d9f4d029d0930705bcac5365915', 11, 5, 'authToken', '[]', 0, '2022-05-04 14:34:26', '2022-05-04 14:34:26', '2023-05-04 14:34:26'),
 ('c2218a5ee2ed015d4767246feca127173ba0866d7f8da7992dc6ca542f62b9cc113b1617ef062110', 7, 9, 'authToken', '[]', 0, '2022-05-27 15:21:22', '2022-05-27 15:21:22', '2022-06-27 15:21:22'),
+('c234f1eb7953915cd7673bfa6e95edcd50329aee96fdd91fb0686bc6ecbbe51461eee926f491dfd2', 4, 9, 'authToken', '[]', 0, '2022-07-06 11:46:27', '2022-07-06 11:46:27', '2023-07-06 11:46:27'),
 ('c253621e5effcc0322face724cdf5e1e26abc7ede51ce8da722b5c5e05887601034fd6453855e5fa', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:37:55', '2022-05-20 17:37:55', '2023-05-20 17:37:55'),
 ('c2841d77bc6ce8cee52605005b1aea383ef0a95cab6655b8e2a72e0fba5dec77845c09fb92171823', 4, 9, 'authToken', '[]', 0, '2022-06-28 17:08:11', '2022-06-28 17:08:11', '2023-06-28 17:08:11'),
 ('c2cc6af7c90dba18517d1fc40c74fd4f2e97b54c64754679c26e00a6741cc75fb21cf6a61a4b93fd', 46, 9, 'authToken', '[]', 0, '2022-05-30 11:56:31', '2022-05-30 11:56:31', '2022-06-30 11:56:31'),
@@ -1301,6 +1300,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('c38fa6c4c6ca77c6162b494c180ccc2b5259ab4d99b3f2f339265121872edb692a7eb8d73e5c2df2', 11, 5, 'authToken', '[]', 0, '2022-05-03 20:00:42', '2022-05-03 20:00:42', '2023-05-03 20:00:42'),
 ('c3d270708a48ce6ed11bd054fa22f8a090608a5a8d6befbd16d1af608593bdf3de255eb9a324779c', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:17:19', '2022-05-10 10:17:19', '2023-05-10 10:17:19'),
 ('c3e4484116ff383e1e0cffa9380fa98817882f6523ec2f8bcae61fb47eb714ded623c5e66fdfedf0', 11, 5, 'authToken', '[]', 0, '2022-05-04 13:26:28', '2022-05-04 13:26:28', '2023-05-04 13:26:28'),
+('c44a6a2defc136898ba2dc2739bd77d2d437b8b65060dd6c8faa14a50d2a5ce1f3300b5f5232a7f8', 4, 9, 'authToken', '[]', 0, '2022-07-08 09:44:53', '2022-07-08 09:44:53', '2023-07-08 09:44:53'),
 ('c48119b36d497412521fde230d09af38b3841cb3cc2d94da2a9a04822c5bc0e7f1b84aa78221db33', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:30:32', '2022-05-19 11:30:32', '2023-05-19 11:30:32'),
 ('c4fa0a2e3cf36893d20b4e3734a8e18e5494827c485652a7511d6acaeef0f18e54a85b9558f706ae', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:56:53', '2022-04-26 12:56:53', '2023-04-26 12:56:53'),
 ('c5438832f41102745d8ccbbdd11515423289a65dd2887ff245c7d76b4abbabb7eda10882edb717bf', 41, 5, 'authToken', '[]', 0, '2022-05-16 10:44:19', '2022-05-16 10:44:19', '2023-05-16 10:44:19'),
@@ -1371,6 +1371,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('cffe9f1fe9c8677031eed5b7ef942c1fa9ec7e2f109582fbb63261c337b3737e26a6fe5ea0237936', 7, 9, 'authToken', '[]', 0, '2022-05-30 12:11:37', '2022-05-30 12:11:37', '2022-06-30 12:11:37'),
 ('d0345744a40aaca46e35ba844dc0c814c12a86d89b07a15156f33feafc9052913d7287bcdcd8dc57', 40, 5, 'authToken', '[]', 0, '2022-05-19 11:35:07', '2022-05-19 11:35:07', '2023-05-19 11:35:07'),
 ('d0860755b212610fb53b54b5741ff6521a92e7b2d7b93b89aa141740f88fafc22cc6baf77f456600', 23, 5, 'authToken', '[]', 0, '2022-05-12 17:56:30', '2022-05-12 17:56:30', '2023-05-12 17:56:30'),
+('d0ca67746e2ea268311abd681ba952f04048ad5b958f7a85c0fb39caca14274ff9e9902342c7835b', 4, 9, 'authToken', '[]', 0, '2022-07-05 16:01:50', '2022-07-05 16:01:50', '2023-07-05 16:01:50'),
 ('d0e39bcbfbf69b6b2371871ae741b642f4822e723e67183b402fffaabf14d806ce27d71ac31a582f', 5, 5, 'authToken', '[]', 0, '2022-04-19 11:59:27', '2022-04-19 11:59:27', '2023-04-19 11:59:27'),
 ('d0f4b7713997f5d565ded0f48470edccbfadcbb1971916a1429ba18c2c076ef4b2a4a6df6af05af5', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:42:52', '2022-05-10 10:42:52', '2023-05-10 10:42:52'),
 ('d14630c863d406a98a8e00f76a51909bc0ad4192fbeb1f2f6db243910579c5005b49200bdbbf6f3f', 4, 9, 'authToken', '[]', 0, '2022-06-23 15:28:17', '2022-06-23 15:28:17', '2023-06-23 15:28:17'),
@@ -1397,7 +1398,8 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('d5ff51653afbb00f1599ccc605ce630bd0375a17dd9515d04ce29ae159d52d3ffdfb160957030d86', 4, 9, 'authToken', '[]', 0, '2022-06-15 00:24:21', '2022-06-15 00:24:21', '2023-06-15 00:24:21'),
 ('d6072f701be76acfef22457abd14d91d6bd7aa9d5050a25266788e0d75158ba088ed7e17f1007c66', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:34:10', '2022-04-19 10:34:10', '2023-04-19 10:34:10'),
 ('d669732b58f0b3e86332d6a53a1d96cdbb61897f9c15e683e88d9f469635b843d8d16b27bbb3cd50', 5, 5, 'authToken', '[]', 0, '2022-04-19 12:01:55', '2022-04-19 12:01:55', '2023-04-19 12:01:55'),
-('d67c1d24a787afabb11f49eb9aa9777bb4273afe0cb43e352c57c18883d9d2cda1eb80d4d793919b', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:37:55', '2022-05-20 17:37:55', '2023-05-20 17:37:55'),
+('d67c1d24a787afabb11f49eb9aa9777bb4273afe0cb43e352c57c18883d9d2cda1eb80d4d793919b', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:37:55', '2022-05-20 17:37:55', '2023-05-20 17:37:55');
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('d6907195fc272d32a7a8823c5437cbfd47ea575d84fc6e037f01f71cfdbc4327d7c0677d3e47625c', 4, 9, 'authToken', '[]', 0, '2022-06-29 12:20:54', '2022-06-29 12:20:54', '2023-06-29 12:20:54'),
 ('d6bce2b9595c35ced384e7904a7268174c3dae1f10857c8ff5e1bc51c400c0f50289554c9fc9cc17', 23, 5, 'authToken', '[]', 0, '2022-05-12 10:07:44', '2022-05-12 10:07:44', '2023-05-12 10:07:44'),
 ('d6e8316eac9cee2e56a583ba6085c025ba1bf3a25cd5e9f3b6c75175a66f0486f7616f3f325e3db3', 1, 9, 'authToken', '[]', 0, '2022-05-23 10:12:13', '2022-05-23 10:12:13', '2022-06-23 10:12:13'),
@@ -1406,7 +1408,9 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('d75eb9a73475ed0100a58b3649a780b5425743ac40c5874c0cbdf93b032e34c6f9732dfb0fc177c4', 2, 5, 'authToken', '[]', 0, '2022-04-26 12:56:16', '2022-04-26 12:56:16', '2023-04-26 12:56:16'),
 ('d7a3c29ce35400cda7848528e87f9133415d73a4bca4fbbba239ce799d47009023678d3776ef2e80', 46, 9, 'authToken', '[]', 0, '2022-06-10 10:16:41', '2022-06-10 10:16:41', '2022-07-10 10:16:41'),
 ('d7b1e943a0cd6e1fe9614e28f208a6da77ed6ddc75335af8a167f442da1e405a57c540f6c15ff681', 7, 9, 'authToken', '[]', 0, '2022-05-30 14:51:58', '2022-05-30 14:51:58', '2022-06-30 14:51:58'),
+('d7b3897a9d111e135f9f609847ae5df4fd250f7fd9f56d7a5d9eae250ffebcc07e9953f797030ce0', 4, 9, 'authToken', '[]', 0, '2022-07-08 02:47:50', '2022-07-08 02:47:50', '2023-07-08 02:47:50'),
 ('d7c728f45894eb3314d76783396a85659e14841ea16159cc0fe04970fea5862ceec739becc6d3444', 1, 9, 'authToken', '[]', 0, '2022-05-23 14:01:41', '2022-05-23 14:01:41', '2022-06-23 14:01:41'),
+('d820afd7ba8a1650fcf5bc1ae6d613d0f0ed0c231866ebfe18144e56c7802551875cee1e7429a72d', 4, 9, 'authToken', '[]', 0, '2022-07-05 12:58:22', '2022-07-05 12:58:22', '2023-07-05 12:58:22'),
 ('d8ebc4455e2edd94f639700bd59f49941f524bf301404020490cb2964705ae2ca71c17febe3757c1', 15, 5, 'authToken', '[]', 0, '2022-04-20 09:39:53', '2022-04-20 09:39:53', '2023-04-20 09:39:53'),
 ('d8f1744cb1b5e7f3db3786816d0bd59493af363693dba96684dae94c1b0eae1831ea3ea095536cd4', 4, 9, 'authToken', '[]', 0, '2022-06-22 11:24:45', '2022-06-22 11:24:45', '2023-06-22 11:24:45'),
 ('d9257e5e121733235007bc73f088d6ecb80254e68e32e51a79a757e11569be621684a88a0b1c6bda', 11, 5, 'authToken', '[]', 0, '2022-05-10 11:55:51', '2022-05-10 11:55:51', '2023-05-10 11:55:51'),
@@ -1414,6 +1418,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('d9716633ac6f75b7524830c2748702dfcc81a8ae86cc055fc22eaef3c96ebc953f06d15764a3417d', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:13:32', '2022-05-03 19:13:32', '2023-05-03 19:13:32'),
 ('d976e8beecd1e1529c92d17f30546e3515f08a1b0f575228dd5666ae5f0d3715b3d5111728792c8c', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:20:08', '2022-05-03 19:20:08', '2023-05-03 19:20:08'),
 ('d9ebfbc3ec8040ab523d518682de846c5196d73c7e127f1a0afd9100b746846323d0be8816426c1e', 2, 5, 'authToken', '[]', 0, '2022-04-27 10:01:47', '2022-04-27 10:01:47', '2023-04-27 10:01:47'),
+('da392afbf7373b6bdad7552ce402f6975d2ca14483d7175bb54065e4fed0b214430a6d4b46d24197', 4, 9, 'authToken', '[]', 0, '2022-07-07 23:04:09', '2022-07-07 23:04:09', '2023-07-07 23:04:09'),
 ('da647af2b899b95636dd9f0cf90ac663228fb4b99fc3ae152190dfad5d13530c3da6ff6cec552f2a', 15, 5, 'authToken', '[]', 0, '2022-04-20 09:56:12', '2022-04-20 09:56:12', '2023-04-20 09:56:12'),
 ('da67e28c948bfb593c276559405943fdad646a46767526a398eb2be7c4f7448533ab2b05f213c0b0', 4, 5, 'authToken', '[]', 0, '2022-04-29 11:38:58', '2022-04-29 11:38:58', '2023-04-29 11:38:58'),
 ('dac8aee2c685a09bee05d8c95af554f9d08c67b2867029140c3adb33a03c6f7e88010c3d8104ba4d', 11, 5, 'authToken', '[]', 0, '2022-05-10 14:22:08', '2022-05-10 14:22:08', '2023-05-10 14:22:08'),
@@ -1425,8 +1430,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('dca7117dce3ddeb6adafb4faf640b73c79316ab3fb3cfd4c2a4d8060f6147d2f25925ee965ba40ec', 7, 9, 'authToken', '[]', 0, '2022-05-28 16:37:18', '2022-05-28 16:37:18', '2022-06-28 16:37:18'),
 ('dcb43f4330fe3e2db8246359aa010e2a80f0bdb8379b7448781b1ea9add48e22dee4ca777bf1cea0', 5, 5, 'authToken', '[]', 0, '2022-04-19 12:27:00', '2022-04-19 12:27:00', '2023-04-19 12:27:00'),
 ('dcd1c3bb304fc34f91b49c657a5167441336a7a910239de49da0ee3314c8eb54d887ef293402a58b', 7, 5, 'authToken', '[]', 0, '2022-05-05 18:03:36', '2022-05-05 18:03:36', '2023-05-05 18:03:36'),
-('dd51e53396c9894f0c7772f6d34f5530f899407610272beb4dbc49c4c4f9f27b59f47a62b29ca580', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:44:58', '2022-05-10 10:44:58', '2023-05-10 10:44:58');
-INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('dd51e53396c9894f0c7772f6d34f5530f899407610272beb4dbc49c4c4f9f27b59f47a62b29ca580', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:44:58', '2022-05-10 10:44:58', '2023-05-10 10:44:58'),
 ('dddac673bc66744861ff214cebd2f247160820b45c39704060a6298569ba802b15e2117074170627', 7, 5, 'authToken', '[]', 0, '2022-05-05 10:33:07', '2022-05-05 10:33:07', '2023-05-05 10:33:07'),
 ('de050937b26b3c7fedf23ded3d59a071341e067a97d1db4d494e2ad71bb63e934e0bc02a4f70ade4', 40, 5, 'authToken', '[]', 0, '2022-05-20 15:50:14', '2022-05-20 15:50:14', '2023-05-20 15:50:14'),
 ('de1fc3abfdbfeb04d1e86189d053ef1a8b0db4da01573ce52225a30a2608decef1c674812d12f5b6', 40, 9, 'authToken', '[]', 0, '2022-05-23 10:15:42', '2022-05-23 10:15:42', '2022-06-23 10:15:42'),
@@ -1462,6 +1466,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('e42bd9a5a044b5987c5cd2b6cb8a01cbb96b875deabc88c1fd4006dab2a72282f7e480f696b8308d', 23, 5, 'authToken', '[]', 0, '2022-05-09 15:14:18', '2022-05-09 15:14:18', '2023-05-09 15:14:18'),
 ('e49ab4b06646f3524575cae165c2b02cda09d45c121718e66577609ad4cbec445f116e56618edfe7', 1, 9, 'authToken', '[]', 0, '2022-05-23 10:03:30', '2022-05-23 10:03:30', '2022-06-23 10:03:30'),
 ('e51c0ca2e5efabb295e8ba98a1664c82734393e4b01b69daf54ab4efaed5b34169629b94b08a816d', 5, 5, 'authToken', '[]', 0, '2022-04-19 10:35:38', '2022-04-19 10:35:38', '2023-04-19 10:35:38'),
+('e533588c88b69518e165692b2cd3569b35de39e41b54c4cf7d85173bb15237f83abe98d7b42fa7db', 4, 9, 'authToken', '[]', 0, '2022-07-06 17:53:16', '2022-07-06 17:53:16', '2023-07-06 17:53:16'),
 ('e546424f6acb39aa17f543137ad1986d8962e8f3b31ffe5e759632de69bb237c8ad5fa64cfc17b6a', 7, 9, 'authToken', '[]', 0, '2022-05-27 15:14:00', '2022-05-27 15:14:00', '2022-06-27 15:14:00'),
 ('e58a2a6c068374a552687d10bb197c2a3b2eac6cc866a2514e00232812a3db8319aa72608dc8a43f', 2, 5, 'authToken', '[]', 0, '2022-04-27 16:23:35', '2022-04-27 16:23:35', '2023-04-27 16:23:35'),
 ('e5fb2f4426a081e83a3e74488e24d4e4b2e5e85e27c4b4bb539e19a228bf8aa39ca0717fc0a65dae', 2, 5, 'authToken', '[]', 0, '2022-04-29 14:30:52', '2022-04-29 14:30:52', '2023-04-29 14:30:52'),
@@ -1537,6 +1542,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('f272c83863c5b19b045f9e111d05e2be3ff5852b17b4a197bdfe63b0dd312bba8e0e2f39426a616d', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:21:22', '2022-05-20 17:21:22', '2023-05-20 17:21:22'),
 ('f2d8924e0bf40fb7afdebfc0c4cedb1e50dcea7917d0468659f105d2b666d7fb3d6c77b43a375dc6', 40, 5, 'authToken', '[]', 0, '2022-05-20 17:37:55', '2022-05-20 17:37:55', '2023-05-20 17:37:55'),
 ('f2df17db2061833fcb0bcafbb3d4e7b10aa0bfcb6ffa1fe997c97e8b4e85e842728aabdf59257c00', 1, 5, 'authToken', '[]', 0, '2022-04-13 17:41:04', '2022-04-13 17:41:04', '2023-04-13 17:41:04'),
+('f2e4cc45ee8dffecef5514c01cd13b826edee23887916dd7401b2a3c435776642ea1f9e2957ca52b', 4, 9, 'authToken', '[]', 0, '2022-07-05 16:01:50', '2022-07-05 16:01:50', '2023-07-05 16:01:50'),
 ('f2e6d9fa03aa3cad7a70c4b772aa41a8cf397b7db4c12fcffbe7f30b09ee910c548e70b896929a34', 63, 5, 'authToken', '[]', 0, '2022-04-20 14:27:09', '2022-04-20 14:27:09', '2023-04-20 14:27:09'),
 ('f316419cba9eb29f3ad40a5bd01cd8a3a22de0d96e315c7e0f0eb9950cf3ecb05b35b027bc8eb9f9', 2, 5, 'authToken', '[]', 0, '2022-04-27 14:34:54', '2022-04-27 14:34:54', '2023-04-27 14:34:54'),
 ('f3195f14a3ef02efddf94dea9427e0a926c9f1410f5c3ecea8b1907e74d53c2b5f84774f858af485', 11, 5, 'authToken', '[]', 0, '2022-05-10 10:06:40', '2022-05-10 10:06:40', '2023-05-10 10:06:40'),
@@ -1597,6 +1603,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('fe39482946f37058edbe6e759fd7663559ed483e676b1f06e180a92aab9bce75183f4d6c59cd7f50', 4, 9, 'authToken', '[]', 0, '2022-06-28 19:50:57', '2022-06-28 19:50:57', '2023-06-28 19:50:57'),
 ('fe6d85c9135e1ff9198aab505da421e3e1fd3e48e3950ee8a5cb2e34f0b9047ba7cbf1ded16666fd', 4, 9, 'authToken', '[]', 0, '2022-06-27 15:07:05', '2022-06-27 15:07:05', '2023-06-27 15:07:05'),
 ('febe7ee692b71afbe7cb7b89f02e65d00007364c6d3b03decc9367930396cc54bec097963a86093f', 9, 5, 'authToken', '[]', 0, '2022-05-03 16:52:00', '2022-05-03 16:52:00', '2023-05-03 16:52:00'),
+('fee02b666006c4d7eaa08b19f09db0a2ca7eb4881f88bfe6ddb4f9396186db5c57b2ecd6bd6ad3bf', 4, 9, 'authToken', '[]', 0, '2022-07-05 16:10:36', '2022-07-05 16:10:36', '2023-07-05 16:10:36'),
 ('ff498dcdd6576a3b62d8fc1775cd69bb26a0934cf12e6ebd4fee16869339900d15d6b1f9bd816ce5', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:11:02', '2022-05-03 19:11:02', '2023-05-03 19:11:02'),
 ('ff6024dc54eac1bcafc03e10030477607a09eaef06efb5141bd7670bb77de5be7b69dd4307dedeef', 11, 5, 'authToken', '[]', 0, '2022-05-03 19:11:06', '2022-05-03 19:11:06', '2023-05-03 19:11:06'),
 ('ff9de26649b1d00306aedb8851ef862fcfdeb1dc90ea7eea4385b0d8bf356c58ae6f772f32549944', 4, 9, 'authToken', '[]', 0, '2022-06-07 15:55:31', '2022-06-07 15:55:31', '2022-07-07 15:55:31'),
@@ -1607,7 +1614,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oauth_auth_codes`
+-- Structure de la table `oauth_auth_codes`
 --
 
 CREATE TABLE `oauth_auth_codes` (
@@ -1622,7 +1629,7 @@ CREATE TABLE `oauth_auth_codes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oauth_clients`
+-- Structure de la table `oauth_clients`
 --
 
 CREATE TABLE `oauth_clients` (
@@ -1640,7 +1647,7 @@ CREATE TABLE `oauth_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oauth_clients`
+-- Déchargement des données de la table `oauth_clients`
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
@@ -1658,7 +1665,7 @@ INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `red
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oauth_personal_access_clients`
+-- Structure de la table `oauth_personal_access_clients`
 --
 
 CREATE TABLE `oauth_personal_access_clients` (
@@ -1669,7 +1676,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oauth_personal_access_clients`
+-- Déchargement des données de la table `oauth_personal_access_clients`
 --
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
@@ -1682,7 +1689,7 @@ INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oauth_refresh_tokens`
+-- Structure de la table `oauth_refresh_tokens`
 --
 
 CREATE TABLE `oauth_refresh_tokens` (
@@ -1695,7 +1702,7 @@ CREATE TABLE `oauth_refresh_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `options`
+-- Structure de la table `options`
 --
 
 CREATE TABLE `options` (
@@ -1709,7 +1716,7 @@ CREATE TABLE `options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `options`
+-- Déchargement des données de la table `options`
 --
 
 INSERT INTO `options` (`id`, `libelle`, `point`, `IdSondage`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -1752,7 +1759,7 @@ INSERT INTO `options` (`id`, `libelle`, `point`, `IdSondage`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paiements`
+-- Structure de la table `paiements`
 --
 
 CREATE TABLE `paiements` (
@@ -1768,7 +1775,7 @@ CREATE TABLE `paiements` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `participer`
+-- Structure de la table `participer`
 --
 
 CREATE TABLE `participer` (
@@ -1782,7 +1789,7 @@ CREATE TABLE `participer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Structure de la table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -1792,7 +1799,7 @@ CREATE TABLE `password_resets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `password_resets`
+-- Déchargement des données de la table `password_resets`
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
@@ -1807,7 +1814,7 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Structure de la table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -1825,7 +1832,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `place_parkings`
+-- Structure de la table `place_parkings`
 --
 
 CREATE TABLE `place_parkings` (
@@ -1843,7 +1850,7 @@ CREATE TABLE `place_parkings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `preferences`
+-- Structure de la table `preferences`
 --
 
 CREATE TABLE `preferences` (
@@ -1858,7 +1865,7 @@ CREATE TABLE `preferences` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `problemes`
+-- Structure de la table `problemes`
 --
 
 CREATE TABLE `problemes` (
@@ -1875,7 +1882,7 @@ CREATE TABLE `problemes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `problemes`
+-- Déchargement des données de la table `problemes`
 --
 
 INSERT INTO `problemes` (`id`, `image`, `commentaire`, `localisation`, `IdUser`, `IdTypeProbleme`, `IdCommune`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -1891,18 +1898,23 @@ INSERT INTO `problemes` (`id`, `image`, `commentaire`, `localisation`, `IdUser`,
 (10, '1656094849_Capture d’écran 2022-03-22 à 12.27.37.png', 'test1', 'Abobo', 8, 1, 1, '2022-06-24 18:20:49', '2022-06-24 18:20:49', NULL),
 (11, '1656094892_Capture d’écran 2022-03-22 à 12.27.37.png', 'test1', 'Abobo', 8, 1, 1, '2022-06-24 18:21:32', '2022-06-24 18:21:32', NULL),
 (15, '1656095004_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-06-24 18:23:24', '2022-06-24 18:23:24', NULL),
-(16, '1656095210_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-06-24 18:26:50', '2022-06-24 18:26:50', NULL);
+(16, '1656095210_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-06-24 18:26:50', '2022-06-24 18:26:50', NULL),
+(17, '1657020071_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-07-05 11:21:11', '2022-07-05 11:21:11', NULL),
+(18, '1657020845_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-07-05 11:34:05', '2022-07-05 11:34:05', NULL),
+(19, '1657020847_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-07-05 11:34:07', '2022-07-05 11:34:07', NULL),
+(20, '1657020849_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-07-05 11:34:09', '2022-07-05 11:34:09', NULL),
+(21, '1657020850_download.jpg', 'zcvsvadq', '424', 8, 1, 1, '2022-07-05 11:34:10', '2022-07-05 11:34:10', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `projets`
+-- Structure de la table `projets`
 --
 
 CREATE TABLE `projets` (
   `id` int(11) NOT NULL,
   `titre` varchar(191) NOT NULL,
-  `description` varchar(191) NOT NULL,
+  `description` text NOT NULL,
   `IdCommune` int(11) NOT NULL,
   `IdUser` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1911,17 +1923,20 @@ CREATE TABLE `projets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `projets`
+-- Déchargement des données de la table `projets`
 --
 
 INSERT INTO `projets` (`id`, `titre`, `description`, `IdCommune`, `IdUser`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Augmentation de salaire detout le monde', 'Pojet pour aider les fonction aui ont un salaire bas et.faible', 1, 1, '2022-06-30 20:28:57', '2022-06-30 20:28:57', NULL),
-(2, 'Renforcer le pont', 'Ce projet vise à refaire les fondations du pont qui date de 2001', 1, 1, '2022-07-01 16:48:05', '2022-07-01 16:48:05', NULL);
+(2, 'Renforcer le pont', 'Ce projet vise à refaire les fondations du pont qui date de 2001', 1, 1, '2022-07-01 16:48:05', '2022-07-01 16:48:05', NULL),
+(3, 'Education', 'Inauguration des écoles', 2, 7, '2022-07-04 12:30:06', '2022-07-04 12:30:06', NULL),
+(4, 'réhabilitation de la sorbonne', 'Espace de renommée delaisser depuis après la crise post-electoral. Il est temps de penser à la rehabilitation de cet espace qui joue un rôle crucial lors des meetings electoraux et actions des jeunes', 1, 7, '2022-07-04 14:09:02', '2022-07-04 14:09:02', NULL),
+(5, 'Planting d\'arbre', 'Dans le cadre de l\'embellissement de la place de la république, la mairie décide de planter des arbres sur tout le long de la voie afin de permettre à la population de sentir de l\'air frais', 2, 1, '2022-07-04 14:12:49', '2022-07-04 14:12:49', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proposition_idees`
+-- Structure de la table `proposition_idees`
 --
 
 CREATE TABLE `proposition_idees` (
@@ -1936,7 +1951,7 @@ CREATE TABLE `proposition_idees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `proposition_idees`
+-- Déchargement des données de la table `proposition_idees`
 --
 
 INSERT INTO `proposition_idees` (`id`, `description`, `IdUserLiker`, `IdUser`, `IdTheme`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2013,13 +2028,13 @@ INSERT INTO `proposition_idees` (`id`, `description`, `IdUserLiker`, `IdUser`, `
 (71, 'kamara', 'null', 7, 1, '2022-06-03 18:22:47', '2022-06-03 18:22:47', NULL),
 (72, 'kamara', 'null', 7, 1, '2022-06-03 18:23:50', '2022-06-03 18:23:50', NULL),
 (73, 'kamara', 'null', 7, 2, '2022-06-03 18:25:39', '2022-06-03 18:25:39', NULL),
-(74, 'el adj', 'null', 4, 1, '2022-06-03 18:31:02', '2022-06-03 18:31:02', NULL),
-(75, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-03 18:32:06', '2022-06-03 18:32:06', NULL),
-(76, 'zvzv', 'null', 4, 1, '2022-06-03 18:33:05', '2022-06-03 18:33:05', NULL),
-(77, 'kamara', 'null', 4, 1, '2022-06-03 18:34:50', '2022-06-03 18:34:50', NULL),
+(74, 'el adj', 'null', 4, 1, '2022-06-03 18:31:02', '2022-07-07 23:39:55', '2022-07-07 23:39:55'),
+(75, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-03 18:32:06', '2022-07-07 23:39:55', '2022-07-07 23:39:55'),
+(76, 'zvzv', 'null', 4, 1, '2022-06-03 18:33:05', '2022-07-07 23:39:54', '2022-07-07 23:39:54'),
+(77, 'kamara', 'null', 4, 1, '2022-06-03 18:34:50', '2022-07-07 23:39:54', '2022-07-07 23:39:54'),
 (78, 'Aménagement du carrefour de l’indénié', 'null', 32, 1, '2022-06-07 10:39:22', '2022-06-07 10:39:22', NULL),
-(79, 'Je suis dans quoi ?', 'null', 4, 2, '2022-06-07 15:59:05', '2022-06-07 15:59:05', NULL),
-(80, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-07 16:08:00', '2022-06-07 16:08:00', NULL),
+(79, 'Je suis dans quoi ?', 'null', 4, 2, '2022-06-07 15:59:05', '2022-07-07 23:39:56', '2022-07-07 23:39:56'),
+(80, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-07 16:08:00', '2022-07-07 23:39:58', '2022-07-07 23:39:58'),
 (81, 'é »féef', 'null', 4, 1, '2022-06-07 16:11:56', '2022-06-07 16:11:56', NULL),
 (82, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-07 17:37:31', '2022-06-07 17:37:31', NULL),
 (83, 'Modification du nombre de champ', 'null', 1, 2, '2022-06-07 17:38:34', '2022-06-07 17:38:34', NULL),
@@ -2129,12 +2144,27 @@ INSERT INTO `proposition_idees` (`id`, `description`, `IdUserLiker`, `IdUser`, `
 (187, 'kamara', NULL, 4, 1, '2022-06-30 16:58:52', '2022-06-30 16:58:52', NULL),
 (188, 'la magie de l\'actualite', NULL, 4, 1, '2022-06-30 16:59:56', '2022-06-30 16:59:56', NULL),
 (189, 'Assainissement de la baie de cocody', NULL, 4, 1, '2022-07-01 17:26:19', '2022-07-01 17:26:19', NULL),
-(190, 'Nettoyage de la rue Lepic', NULL, 4, 1, '2022-07-01 19:17:23', '2022-07-01 19:17:23', NULL);
+(190, 'Nettoyage de la rue Lepic', NULL, 4, 1, '2022-07-01 19:17:23', '2022-07-01 19:17:23', NULL),
+(191, 'celestin', NULL, 4, 1, '2022-07-02 13:37:37', '2022-07-02 13:37:37', NULL),
+(192, 'yyyy', NULL, 4, 1, '2022-07-04 21:20:53', '2022-07-04 21:20:53', NULL),
+(193, 'nouvelle proposition d\'idée', NULL, 4, 1, '2022-07-05 12:44:36', '2022-07-05 12:44:36', NULL),
+(194, 'Terrassement de la place sorbonne', NULL, 4, 1, '2022-07-05 20:12:12', '2022-07-05 20:12:12', NULL),
+(195, 'Ajout du nombre de voitures', NULL, 1, 1, '2022-07-06 14:12:44', '2022-07-06 14:12:44', NULL),
+(196, 'trt', NULL, 1, 1, '2022-07-06 14:19:18', '2022-07-06 14:19:18', NULL),
+(197, 'fgg', NULL, 1, 1, '2022-07-06 14:19:54', '2022-07-06 14:19:54', NULL),
+(198, 'tuiii', NULL, 1, 1, '2022-07-06 14:20:03', '2022-07-06 14:20:03', NULL),
+(199, '8gihigugigu', NULL, 1, 1, '2022-07-06 14:20:14', '2022-07-06 14:20:14', NULL),
+(200, 'ttu', NULL, 1, 1, '2022-07-06 14:20:55', '2022-07-06 14:20:55', NULL),
+(201, 'sgj', NULL, 4, 1, '2022-07-06 14:29:47', '2022-07-06 14:29:47', NULL),
+(202, 'Démolition des maisons précaires aux alentours de la lagune', NULL, 4, 1, '2022-07-06 17:54:54', '2022-07-06 17:54:54', NULL),
+(203, 'je propose la création d\'un foyer pour les jeunes', NULL, 4, 1, '2022-07-06 20:34:13', '2022-07-06 20:34:13', NULL),
+(204, 'construction d\'un marché', NULL, 4, 1, '2022-07-06 21:56:43', '2022-07-06 21:56:43', NULL),
+(205, 'nouveau points', NULL, 4, 1, '2022-07-07 19:22:27', '2022-07-07 19:22:27', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reagir`
+-- Structure de la table `reagir`
 --
 
 CREATE TABLE `reagir` (
@@ -2151,7 +2181,7 @@ CREATE TABLE `reagir` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservations`
+-- Structure de la table `reservations`
 --
 
 CREATE TABLE `reservations` (
@@ -2167,7 +2197,7 @@ CREATE TABLE `reservations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_permissions`
+-- Structure de la table `role_permissions`
 --
 
 CREATE TABLE `role_permissions` (
@@ -2179,7 +2209,7 @@ CREATE TABLE `role_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `role_permissions`
+-- Déchargement des données de la table `role_permissions`
 --
 
 INSERT INTO `role_permissions` (`id`, `IdUser`, `IdTypeUtilisateur`, `created_at`, `updated_at`) VALUES
@@ -2215,7 +2245,7 @@ INSERT INTO `role_permissions` (`id`, `IdUser`, `IdTypeUtilisateur`, `created_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service_adminis`
+-- Structure de la table `service_adminis`
 --
 
 CREATE TABLE `service_adminis` (
@@ -2233,17 +2263,18 @@ CREATE TABLE `service_adminis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `service_adminis`
+-- Déchargement des données de la table `service_adminis`
 --
 
 INSERT INTO `service_adminis` (`id`, `statut`, `jsonDonnee`, `nbreExemplaire`, `codeUnique`, `copieImage`, `IdTypeService`, `IdUser`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'En Cours', '{\"nom\": \"KEKRE\", \"prenom\": \"kouame  gboko roland\", \"nomMere\": \"Kouakou Asso Chantal\", \"nomPere\": \"Kekre Kouadio\", \"dateNaissance\": \"Le sept mars mille neuf cent quatre vingt XXXX\", \"lieuNaissance\": \"Kekreni\", \"numeroRegistre\": \"N°240\"}', 2, 'MC-2478', 'images.jpg', 1, 27, '2022-07-01 16:18:02', '2022-07-01 16:18:02', NULL),
-(2, NULL, '{\"nom\": \"dix mars deux mille\", \"nomMere\": \"maman\", \"nomPere\": \"drame\", \"dateNaissance\": \"bouake\", \"lieuNaissance\": \"2134\", \"numeroRegistre\": \"0844623157\"}', 2, 'MC-7370', NULL, 1, 4, '2022-07-01 19:14:49', '2022-07-01 19:14:49', NULL);
+(1, 'En Cours', '{\"nom\": \"KEKRE\", \"prenom\": \"kouame  gboko roland\", \"nomMere\": \"Kouakou Asso Chantal\", \"nomPere\": \"Kekre Kouadio\", \"dateNaissance\": \"Le sept mars mille neuf cent quatre vingt XXXX\", \"lieuNaissance\": \"Kekreni\", \"numeroRegistre\": \"N°240\"}', 2, 'MC-2478', 'images.jpg', 1, 27, '2022-07-04 18:13:37', '2022-07-04 18:13:37', NULL),
+(2, NULL, '{\"nom\": \"BAKAYOKO\", \"prenom\": \"NINA\", \"nomMere\": \"ESTELLE\", \"nomPere\": \"ANGE\", \"dateNaissance\": \"bouake\", \"lieuNaissance\": \"Abengourou\", \"numeroRegistre\": \"N°250\"}', 2, 'MC-7370', 'images.png', 1, 4, '2022-07-05 19:12:32', '2022-07-05 19:12:32', NULL),
+(3, NULL, '{\"nom\": \"six juin deux mille\", \"nomMere\": \"Marceline\", \"nomPere\": \"Alain\", \"dateNaissance\": \"abobo\", \"lieuNaissance\": \"1123 du 09/2000\", \"numeroRegistre\": \"0505050505\"}', 2, 'MC-8141', NULL, 1, 4, '2022-07-06 18:00:50', '2022-07-06 18:00:50', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `signaler`
+-- Structure de la table `signaler`
 --
 
 CREATE TABLE `signaler` (
@@ -2257,7 +2288,7 @@ CREATE TABLE `signaler` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sondages`
+-- Structure de la table `sondages`
 --
 
 CREATE TABLE `sondages` (
@@ -2271,7 +2302,7 @@ CREATE TABLE `sondages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sondages`
+-- Déchargement des données de la table `sondages`
 --
 
 INSERT INTO `sondages` (`id`, `description`, `IdUser`, `created_at`, `updated_at`, `IdCommune`, `deleted_at`) VALUES
@@ -2306,7 +2337,7 @@ INSERT INTO `sondages` (`id`, `description`, `IdUser`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `themes`
+-- Structure de la table `themes`
 --
 
 CREATE TABLE `themes` (
@@ -2318,7 +2349,7 @@ CREATE TABLE `themes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `themes`
+-- Déchargement des données de la table `themes`
 --
 
 INSERT INTO `themes` (`id`, `titre`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2328,7 +2359,7 @@ INSERT INTO `themes` (`id`, `titre`, `created_at`, `updated_at`, `deleted_at`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_informations`
+-- Structure de la table `type_informations`
 --
 
 CREATE TABLE `type_informations` (
@@ -2340,16 +2371,16 @@ CREATE TABLE `type_informations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type_informations`
+-- Déchargement des données de la table `type_informations`
 --
 
 INSERT INTO `type_informations` (`id`, `titre`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Religion', '2022-04-13 17:20:06', '2022-04-13 17:20:06', NULL);
+(1, 'urbanisation', '2022-04-13 17:20:06', '2022-04-13 17:20:06', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_problemes`
+-- Structure de la table `type_problemes`
 --
 
 CREATE TABLE `type_problemes` (
@@ -2361,7 +2392,7 @@ CREATE TABLE `type_problemes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type_problemes`
+-- Déchargement des données de la table `type_problemes`
 --
 
 INSERT INTO `type_problemes` (`id`, `titre`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2371,7 +2402,7 @@ INSERT INTO `type_problemes` (`id`, `titre`, `created_at`, `updated_at`, `delete
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_services`
+-- Structure de la table `type_services`
 --
 
 CREATE TABLE `type_services` (
@@ -2383,7 +2414,7 @@ CREATE TABLE `type_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type_services`
+-- Déchargement des données de la table `type_services`
 --
 
 INSERT INTO `type_services` (`id`, `typeService`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2392,7 +2423,7 @@ INSERT INTO `type_services` (`id`, `typeService`, `created_at`, `updated_at`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type_utilisateurs`
+-- Structure de la table `type_utilisateurs`
 --
 
 CREATE TABLE `type_utilisateurs` (
@@ -2404,7 +2435,7 @@ CREATE TABLE `type_utilisateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `type_utilisateurs`
+-- Déchargement des données de la table `type_utilisateurs`
 --
 
 INSERT INTO `type_utilisateurs` (`id`, `profil`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2416,7 +2447,7 @@ INSERT INTO `type_utilisateurs` (`id`, `profil`, `created_at`, `updated_at`, `de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
@@ -2440,11 +2471,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `image`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `prenom`, `phone`, `sexe`, `date_naissance`, `lieu_naissance`, `IdCommune`, `IdTypeUtilisateur`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '', 'Kouamé4', 'roland04@gmail.com', '2022-05-06 10:58:11', '$2y$10$iiSihs6nZpPRaO0o9UELgOIF7Q/dt2NKqGUYukFg8Ck.cFPSEHY0i', NULL, 'Kouamé Gboko', '0767544122', 'M', '2022-05-12', 'Bondougou', 1, 1, '2022-05-05 18:54:37', '2022-07-01 16:10:38', NULL),
+(1, '', 'Kouamé4', 'roland04@gmail.com', '2022-05-06 10:58:11', '$2y$10$8rBf9BJowxLsf2z4XOL4MuxQHalGdm7NaI32dL73NpJdXptectXje', NULL, 'Kouamé Gboko', '0767544122', 'M', '2022-05-12', 'Bondougou', 1, 1, '2022-05-05 18:54:37', '2022-07-02 13:24:09', NULL),
 (2, '', 'tesef', 'test@gmail.com', '2022-04-29 15:40:54', '$2y$10$jSz8mR3uiPdQQavmJnmYI.iucxUSF6zgOosNrl1LgZrv0VeDBVq3y', NULL, 'ladj', '0566305531', 'M', '2000-02-11', 'Bondoukou', 2, 1, '2022-04-29 15:40:54', '2022-06-13 15:18:33', NULL),
 (3, '', 'kamara', 'test2@gmail.com', '2022-04-27 11:53:59', '$2y$10$6N/suXBbLYeEXBvMFWjPFe0/vOZxcO0loKFIJw1.aaDKw7whH1P3K', NULL, 'aristide', '0202020202', 'M', '2000-09-11', 'Bouna', 3, 1, '2022-04-27 11:53:59', '2022-04-29 10:55:31', NULL),
 (4, '', 'koffi', 'test3@gmail.com', '2022-04-29 11:38:32', '$2y$10$5T/E0.1AALVyd.sOA6TzX.wFGu3qRKJH83aUnYUd2sgYQ9Iq8xeMy', NULL, 'el mr', '0566305532', 'M', '2018-06-22', 'Bondoukou', 1, 1, '2022-04-29 11:38:32', '2022-07-01 20:10:10', NULL),
@@ -2485,7 +2516,7 @@ INSERT INTO `users` (`id`, `image`, `name`, `email`, `email_verified_at`, `passw
 (40, '', 'Silue', 'ruth125@gmail.com', '2022-05-13 15:54:56', '$2y$10$jNoJO7AJI0DT.6PYAm84FueBWy2XXaotwRS6XMixZVta.7eykJvGC', NULL, 'Ruth', '020398', 'F', '2022-05-20', 'Bongouanou', 2, 3, '2022-05-13 15:54:56', '2022-06-01 10:57:12', NULL),
 (41, '', 'Koffi', 'louis12@gmail.com', '2022-05-16 10:22:55', '$2y$10$OLUiDYdk0EGlmGlhxcnzB.AlhSDTHAP.0sa7IBXDPmgyGjjj9CA0y', NULL, 'louis', '09123', 'M', '2022-05-17', 'Bongouanou', 2, 3, '2022-05-16 10:22:55', '2022-06-13 15:20:14', '2022-06-13 15:20:14'),
 (42, '', 'Yous', 'yous@gmail.com', NULL, 'yous', NULL, 'celestin', '0702968786', 'M', '2000-04-25', 'Bouna', 1, 1, NULL, NULL, NULL),
-(43, '', 'Yous', 'yous@gmail.com', NULL, 'yous', NULL, 'celestin', '0702968787', 'M', '2000-04-25', 'Bouna', 1, 1, NULL, NULL, NULL),
+(43, '', 'Yous', 'yous@gmail.comdd', NULL, 'yous', NULL, 'celestin', '0702968787', 'M', '2000-04-25', 'Bouna', 1, 1, NULL, '2022-07-07 23:42:34', NULL),
 (44, '', 'Koffi', 'lou@gmail', '2022-05-24 15:53:17', '$2y$10$ZyXs9nN91Ap/0KwO6WtK/.c9p1BD8sPt0TzBCXC7mxHU.3MAonrBy', NULL, 'Lou marie', '0566', 'M', '2022-05-25', 'Gambie', 2, 3, '2022-05-24 15:53:17', '2022-06-01 10:35:41', NULL),
 (45, '', 'Koffi', 'lou@gmail.com', '2022-05-24 15:55:51', '$2y$10$5nkTS5alSA3YLrqIfaEG.OindGCqfEaki/vKbJmrJP//ShMyXtSXe', NULL, 'lou marie', '0578', 'F', '2022-05-26', 'Gambie', 2, 3, '2022-05-24 15:55:51', '2022-06-13 15:35:10', '2022-06-13 15:35:10'),
 (46, '', 'Diaby', 'mai@gmail.com', '2022-05-24 15:57:55', '$2y$10$NBH1YbDFKyp8b2o66RxfAOegJJ3Cy1kYMi58CYicS3lr7wGSF169a', NULL, 'Maîmouna', '0990', 'F', '1994-06-24', 'Bongouanou', 2, 3, '2022-05-24 15:57:55', '2022-06-01 12:03:18', NULL),
@@ -2496,7 +2527,7 @@ INSERT INTO `users` (`id`, `image`, `name`, `email`, `email_verified_at`, `passw
 -- --------------------------------------------------------
 
 --
--- Table structure for table `votes`
+-- Structure de la table `votes`
 --
 
 CREATE TABLE `votes` (
@@ -2509,7 +2540,7 @@ CREATE TABLE `votes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `votes`
+-- Déchargement des données de la table `votes`
 --
 
 INSERT INTO `votes` (`id`, `IdUser`, `IdOption`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -2554,7 +2585,7 @@ INSERT INTO `votes` (`id`, `IdUser`, `IdOption`, `created_at`, `updated_at`, `de
 -- --------------------------------------------------------
 
 --
--- Table structure for table `websockets_statistics_entries`
+-- Structure de la table `websockets_statistics_entries`
 --
 
 CREATE TABLE `websockets_statistics_entries` (
@@ -2568,7 +2599,7 @@ CREATE TABLE `websockets_statistics_entries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `websockets_statistics_entries`
+-- Déchargement des données de la table `websockets_statistics_entries`
 --
 
 INSERT INTO `websockets_statistics_entries` (`id`, `app_id`, `peak_connection_count`, `websocket_message_count`, `api_message_count`, `created_at`, `updated_at`) VALUES
@@ -6304,30 +6335,30 @@ INSERT INTO `websockets_statistics_entries` (`id`, `app_id`, `peak_connection_co
 (3725, '1420627', 0, 0, 1, '2022-06-14 09:19:10', '2022-06-14 09:19:10');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `cartes`
+-- Index pour la table `cartes`
 --
 ALTER TABLE `cartes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
+-- Index pour la table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `collectes`
+-- Index pour la table `collectes`
 --
 ALTER TABLE `collectes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IdProjet` (`IdProjet`);
 
 --
--- Indexes for table `commenter`
+-- Index pour la table `commenter`
 --
 ALTER TABLE `commenter`
   ADD PRIMARY KEY (`id`),
@@ -6335,20 +6366,20 @@ ALTER TABLE `commenter`
   ADD KEY `IdProposIdee` (`IdProposIdee`);
 
 --
--- Indexes for table `communes`
+-- Index pour la table `communes`
 --
 ALTER TABLE `communes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Index pour la table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `informations`
+-- Index pour la table `informations`
 --
 ALTER TABLE `informations`
   ADD PRIMARY KEY (`id`),
@@ -6357,7 +6388,7 @@ ALTER TABLE `informations`
   ADD KEY `IdCommune` (`IdCommune`);
 
 --
--- Indexes for table `liker`
+-- Index pour la table `liker`
 --
 ALTER TABLE `liker`
   ADD PRIMARY KEY (`id`),
@@ -6365,69 +6396,70 @@ ALTER TABLE `liker`
   ADD KEY `IdProposIdee` (`IdProposIdee`);
 
 --
--- Indexes for table `mappings`
+-- Index pour la table `mappings`
 --
 ALTER TABLE `mappings`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IdCommune` (`IdCommune`) USING BTREE,
   ADD KEY `IdCategorie` (`IdCategorie`),
-  ADD KEY `IdUser` (`IdUser`);
+  ADD KEY `IdUser` (`IdUser`),
+  ADD KEY `IdResidant` (`IdResidant`);
 
 --
--- Indexes for table `migrations`
+-- Index pour la table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `oauth_access_tokens`
+-- Index pour la table `oauth_access_tokens`
 --
 ALTER TABLE `oauth_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
 
 --
--- Indexes for table `oauth_auth_codes`
+-- Index pour la table `oauth_auth_codes`
 --
 ALTER TABLE `oauth_auth_codes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
 
 --
--- Indexes for table `oauth_clients`
+-- Index pour la table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_clients_user_id_index` (`user_id`);
 
 --
--- Indexes for table `oauth_personal_access_clients`
+-- Index pour la table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `oauth_refresh_tokens`
+-- Index pour la table `oauth_refresh_tokens`
 --
 ALTER TABLE `oauth_refresh_tokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
 
 --
--- Indexes for table `options`
+-- Index pour la table `options`
 --
 ALTER TABLE `options`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IdSondage` (`IdSondage`) USING BTREE;
 
 --
--- Indexes for table `paiements`
+-- Index pour la table `paiements`
 --
 ALTER TABLE `paiements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `participer`
+-- Index pour la table `participer`
 --
 ALTER TABLE `participer`
   ADD PRIMARY KEY (`id`),
@@ -6435,13 +6467,13 @@ ALTER TABLE `participer`
   ADD KEY `IdCollecte` (`IdCollecte`) USING BTREE;
 
 --
--- Indexes for table `password_resets`
+-- Index pour la table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Index pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -6449,7 +6481,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `place_parkings`
+-- Index pour la table `place_parkings`
 --
 ALTER TABLE `place_parkings`
   ADD PRIMARY KEY (`id`),
@@ -6457,7 +6489,7 @@ ALTER TABLE `place_parkings`
   ADD KEY `IdReservation` (`IdReservation`);
 
 --
--- Indexes for table `preferences`
+-- Index pour la table `preferences`
 --
 ALTER TABLE `preferences`
   ADD PRIMARY KEY (`id`),
@@ -6465,7 +6497,7 @@ ALTER TABLE `preferences`
   ADD KEY `IdTypeInformation` (`IdTypeInformation`) USING BTREE;
 
 --
--- Indexes for table `problemes`
+-- Index pour la table `problemes`
 --
 ALTER TABLE `problemes`
   ADD PRIMARY KEY (`id`) USING BTREE,
@@ -6474,7 +6506,7 @@ ALTER TABLE `problemes`
   ADD KEY `IdCommune` (`IdCommune`);
 
 --
--- Indexes for table `projets`
+-- Index pour la table `projets`
 --
 ALTER TABLE `projets`
   ADD PRIMARY KEY (`id`),
@@ -6482,7 +6514,7 @@ ALTER TABLE `projets`
   ADD KEY `IdUser` (`IdUser`);
 
 --
--- Indexes for table `proposition_idees`
+-- Index pour la table `proposition_idees`
 --
 ALTER TABLE `proposition_idees`
   ADD PRIMARY KEY (`id`) USING BTREE,
@@ -6490,7 +6522,7 @@ ALTER TABLE `proposition_idees`
   ADD KEY `IdTheme` (`IdTheme`);
 
 --
--- Indexes for table `reagir`
+-- Index pour la table `reagir`
 --
 ALTER TABLE `reagir`
   ADD PRIMARY KEY (`id`),
@@ -6498,7 +6530,7 @@ ALTER TABLE `reagir`
   ADD KEY `IdPropositionIdee` (`IdPropositionIdee`) USING BTREE;
 
 --
--- Indexes for table `reservations`
+-- Index pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
@@ -6506,7 +6538,7 @@ ALTER TABLE `reservations`
   ADD KEY `IdUser` (`IdUser`);
 
 --
--- Indexes for table `role_permissions`
+-- Index pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   ADD PRIMARY KEY (`id`),
@@ -6514,7 +6546,7 @@ ALTER TABLE `role_permissions`
   ADD KEY `IdTypeUtilisateur` (`IdTypeUtilisateur`) USING BTREE;
 
 --
--- Indexes for table `service_adminis`
+-- Index pour la table `service_adminis`
 --
 ALTER TABLE `service_adminis`
   ADD PRIMARY KEY (`id`),
@@ -6522,7 +6554,7 @@ ALTER TABLE `service_adminis`
   ADD KEY `IdTypeService` (`IdTypeService`);
 
 --
--- Indexes for table `signaler`
+-- Index pour la table `signaler`
 --
 ALTER TABLE `signaler`
   ADD PRIMARY KEY (`id`),
@@ -6530,7 +6562,7 @@ ALTER TABLE `signaler`
   ADD KEY `IdProposIdee` (`IdProposIdee`);
 
 --
--- Indexes for table `sondages`
+-- Index pour la table `sondages`
 --
 ALTER TABLE `sondages`
   ADD PRIMARY KEY (`id`),
@@ -6538,37 +6570,37 @@ ALTER TABLE `sondages`
   ADD KEY `IdCommune` (`IdCommune`);
 
 --
--- Indexes for table `themes`
+-- Index pour la table `themes`
 --
 ALTER TABLE `themes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_informations`
+-- Index pour la table `type_informations`
 --
 ALTER TABLE `type_informations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_problemes`
+-- Index pour la table `type_problemes`
 --
 ALTER TABLE `type_problemes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_services`
+-- Index pour la table `type_services`
 --
 ALTER TABLE `type_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `type_utilisateurs`
+-- Index pour la table `type_utilisateurs`
 --
 ALTER TABLE `type_utilisateurs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -6576,7 +6608,7 @@ ALTER TABLE `users`
   ADD KEY `IdCommune` (`IdCommune`) USING BTREE;
 
 --
--- Indexes for table `votes`
+-- Index pour la table `votes`
 --
 ALTER TABLE `votes`
   ADD PRIMARY KEY (`id`),
@@ -6584,355 +6616,356 @@ ALTER TABLE `votes`
   ADD KEY `IdOption` (`IdOption`) USING BTREE;
 
 --
--- Indexes for table `websockets_statistics_entries`
+-- Index pour la table `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `cartes`
+-- AUTO_INCREMENT pour la table `cartes`
 --
 ALTER TABLE `cartes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT pour la table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `collectes`
+-- AUTO_INCREMENT pour la table `collectes`
 --
 ALTER TABLE `collectes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `commenter`
+-- AUTO_INCREMENT pour la table `commenter`
 --
 ALTER TABLE `commenter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `communes`
+-- AUTO_INCREMENT pour la table `communes`
 --
 ALTER TABLE `communes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT pour la table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `informations`
+-- AUTO_INCREMENT pour la table `informations`
 --
 ALTER TABLE `informations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `liker`
+-- AUTO_INCREMENT pour la table `liker`
 --
 ALTER TABLE `liker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `mappings`
+-- AUTO_INCREMENT pour la table `mappings`
 --
 ALTER TABLE `mappings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `oauth_clients`
+-- AUTO_INCREMENT pour la table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `oauth_personal_access_clients`
+-- AUTO_INCREMENT pour la table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `options`
+-- AUTO_INCREMENT pour la table `options`
 --
 ALTER TABLE `options`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `participer`
+-- AUTO_INCREMENT pour la table `participer`
 --
 ALTER TABLE `participer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT pour la table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `place_parkings`
+-- AUTO_INCREMENT pour la table `place_parkings`
 --
 ALTER TABLE `place_parkings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `preferences`
+-- AUTO_INCREMENT pour la table `preferences`
 --
 ALTER TABLE `preferences`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `problemes`
+-- AUTO_INCREMENT pour la table `problemes`
 --
 ALTER TABLE `problemes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `projets`
+-- AUTO_INCREMENT pour la table `projets`
 --
 ALTER TABLE `projets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `proposition_idees`
+-- AUTO_INCREMENT pour la table `proposition_idees`
 --
 ALTER TABLE `proposition_idees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
 
 --
--- AUTO_INCREMENT for table `reagir`
+-- AUTO_INCREMENT pour la table `reagir`
 --
 ALTER TABLE `reagir`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `reservations`
+-- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `role_permissions`
+-- AUTO_INCREMENT pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `service_adminis`
+-- AUTO_INCREMENT pour la table `service_adminis`
 --
 ALTER TABLE `service_adminis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `signaler`
+-- AUTO_INCREMENT pour la table `signaler`
 --
 ALTER TABLE `signaler`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sondages`
+-- AUTO_INCREMENT pour la table `sondages`
 --
 ALTER TABLE `sondages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `themes`
+-- AUTO_INCREMENT pour la table `themes`
 --
 ALTER TABLE `themes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `type_informations`
+-- AUTO_INCREMENT pour la table `type_informations`
 --
 ALTER TABLE `type_informations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `type_problemes`
+-- AUTO_INCREMENT pour la table `type_problemes`
 --
 ALTER TABLE `type_problemes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `type_services`
+-- AUTO_INCREMENT pour la table `type_services`
 --
 ALTER TABLE `type_services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `type_utilisateurs`
+-- AUTO_INCREMENT pour la table `type_utilisateurs`
 --
 ALTER TABLE `type_utilisateurs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT for table `votes`
+-- AUTO_INCREMENT pour la table `votes`
 --
 ALTER TABLE `votes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `websockets_statistics_entries`
+-- AUTO_INCREMENT pour la table `websockets_statistics_entries`
 --
 ALTER TABLE `websockets_statistics_entries`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3726;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `collectes`
+-- Contraintes pour la table `collectes`
 --
 ALTER TABLE `collectes`
   ADD CONSTRAINT `collectes_ibfk_1` FOREIGN KEY (`IdProjet`) REFERENCES `projets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `commenter`
+-- Contraintes pour la table `commenter`
 --
 ALTER TABLE `commenter`
   ADD CONSTRAINT `commenter_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `commenter_ibfk_2` FOREIGN KEY (`IdProposIdee`) REFERENCES `proposition_idees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `informations`
+-- Contraintes pour la table `informations`
 --
 ALTER TABLE `informations`
   ADD CONSTRAINT `informations_ibfk_1` FOREIGN KEY (`IdTypeInformation`) REFERENCES `type_informations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `informations_ibfk_2` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `liker`
+-- Contraintes pour la table `liker`
 --
 ALTER TABLE `liker`
   ADD CONSTRAINT `liker_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `liker_ibfk_2` FOREIGN KEY (`IdProposIdee`) REFERENCES `proposition_idees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `mappings`
+-- Contraintes pour la table `mappings`
 --
 ALTER TABLE `mappings`
   ADD CONSTRAINT `mappings_ibfk_1` FOREIGN KEY (`IdCommune`) REFERENCES `communes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mappings_ibfk_2` FOREIGN KEY (`IdCategorie`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `mappings_ibfk_3` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mappings_ibfk_3` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `mappings_ibfk_4` FOREIGN KEY (`IdResidant`) REFERENCES `communes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `options`
+-- Contraintes pour la table `options`
 --
 ALTER TABLE `options`
   ADD CONSTRAINT `options_ibfk_1` FOREIGN KEY (`IdSondage`) REFERENCES `sondages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `participer`
+-- Contraintes pour la table `participer`
 --
 ALTER TABLE `participer`
   ADD CONSTRAINT `participer_ibfk_1` FOREIGN KEY (`IdCollecte`) REFERENCES `collectes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `participer_ibfk_2` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `place_parkings`
+-- Contraintes pour la table `place_parkings`
 --
 ALTER TABLE `place_parkings`
   ADD CONSTRAINT `place_parkings_ibfk_1` FOREIGN KEY (`IdParking`) REFERENCES `parkings` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `preferences`
+-- Contraintes pour la table `preferences`
 --
 ALTER TABLE `preferences`
   ADD CONSTRAINT `preferences_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `preferences_ibfk_2` FOREIGN KEY (`IdTypeInformation`) REFERENCES `type_informations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `problemes`
+-- Contraintes pour la table `problemes`
 --
 ALTER TABLE `problemes`
   ADD CONSTRAINT `problemes_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `problemes_ibfk_2` FOREIGN KEY (`IdTypeProbleme`) REFERENCES `type_problemes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `projets`
+-- Contraintes pour la table `projets`
 --
 ALTER TABLE `projets`
   ADD CONSTRAINT `projets_ibfk_1` FOREIGN KEY (`IdCommune`) REFERENCES `communes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `projets_ibfk_2` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `proposition_idees`
+-- Contraintes pour la table `proposition_idees`
 --
 ALTER TABLE `proposition_idees`
   ADD CONSTRAINT `proposition_idees_ibfk_2` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `proposition_idees_ibfk_3` FOREIGN KEY (`IdTheme`) REFERENCES `themes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reagir`
+-- Contraintes pour la table `reagir`
 --
 ALTER TABLE `reagir`
   ADD CONSTRAINT `reagir_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reagir_ibfk_2` FOREIGN KEY (`IdPropositionIdee`) REFERENCES `proposition_idees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reservations`
+-- Contraintes pour la table `reservations`
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`IdPaiement`) REFERENCES `paiements` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `role_permissions`
+-- Contraintes pour la table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   ADD CONSTRAINT `role_permissions_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `role_permissions_ibfk_2` FOREIGN KEY (`IdTypeUtilisateur`) REFERENCES `type_utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `service_adminis`
+-- Contraintes pour la table `service_adminis`
 --
 ALTER TABLE `service_adminis`
   ADD CONSTRAINT `service_adminis_ibfk_1` FOREIGN KEY (`IdTypeService`) REFERENCES `type_services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `service_adminis_ibfk_2` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `signaler`
+-- Contraintes pour la table `signaler`
 --
 ALTER TABLE `signaler`
   ADD CONSTRAINT `signaler_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `signaler_ibfk_2` FOREIGN KEY (`IdProposIdee`) REFERENCES `proposition_idees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `sondages`
+-- Contraintes pour la table `sondages`
 --
 ALTER TABLE `sondages`
   ADD CONSTRAINT `sondages_ibfk_1` FOREIGN KEY (`IdUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `users`
+-- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`IdTypeUtilisateur`) REFERENCES `type_utilisateurs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`IdCommune`) REFERENCES `communes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `votes`
+-- Contraintes pour la table `votes`
 --
 ALTER TABLE `votes`
   ADD CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`IdOption`) REFERENCES `options` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

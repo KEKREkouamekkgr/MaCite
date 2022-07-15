@@ -5,6 +5,7 @@ namespace App\Http\Controllers\apiController\apiAdminController\Mapping;
 use Carbon\Carbon;
 use App\Models\Mapping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,7 +33,7 @@ class MappingController extends Controller
     {
         $input = $request->all();
         $validator = Validator::make($input,[
-            'image'=>'required',
+            // 'image'=>'required',
             'nomProprietaire'=>'required',
             'prenomProprietaire'=>'required',
             'numTel'=>'required',
@@ -157,4 +158,42 @@ class MappingController extends Controller
         $idee->delete();
         return response()->json('Supression effectué avec succès',204);
     }
+
+    public function parkingRecherche($commune,$categorie)
+    {
+
+        if(!is_null($commune) && !is_null($categorie)){
+            $reservationUser = DB::table('mappings')
+            ->join('categories', 'mappings.IdCategorie', '=', 'categories.id')
+            ->join('communes', 'mappings.IdCommune', '=', 'communes.id')
+            ->where('IdCommune',$commune)
+            ->where('IdCategorie',$categorie)
+            ->select('mappings.*','categories.*')
+            ->get();
+            $array = $reservationUser->toArray();
+            return response()->json($array ,200);
+        }else{
+            return response()->json('Non Trouvé',200);
+        }
+    }
+
+    public function categorieRecherche($categorie)
+    {
+
+        if(!is_null($categorie)){
+            $reservationUser = DB::table('mappings')
+            ->join('categories', 'mappings.IdCategorie', '=', 'categories.id')
+            ->join('communes', 'mappings.IdCommune', '=', 'communes.id')
+            ->where('IdCategorie',$categorie)
+            ->select('mappings.*','categories.*',('mappings.jsonDonnee'))
+            ->get();
+
+            return response()->json($reservationUser,200);
+        }else{
+            return response()->json('Non Trouvé',200);
+        }
+    }
+
+
+
 }
